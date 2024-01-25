@@ -30,4 +30,10 @@
     <EndZeit>2024-01-01T16:00:00</EndZeit>
     <Pause>0.5</Pause>
   </MArbeitsZeit>
+  <MArbeitsZeit ID="6">
+    <EinsatzOrt>Berlin</EinsatzOrt>
+    <StartZeit>2024-01-15T10:00:00</StartZeit>
+    <EndZeit>2024-01-15T17:30:00</EndZeit>
+    <Pause>0</Pause>
+  </MArbeitsZeit>
 </ArrayOfMArbeitsZeit>
