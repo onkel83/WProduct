@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "6PlimPWJK3OSLi7DyWfuG9IsrV/PpkLE4Dhyfi6MXYTtuVK7MXpVtNIVQtDcDMawIcGx+zjA0eDpBOXt1HI1EA==",
+  "dgSpecHash": "GewZlSYvKpJ4/JSp7bMsuaK7duDKUZ/MrM31rHx6z1AVJAmfxc5xQYadP47fFoxtgZvZxTRXca7udTC7yPoSEA==",
   "success": true,
   "projectFilePath": "/home/onkel/source/WProduct/WPAZV/WPAZV.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/onkel/.nuget/packages/microsoft.netcore.app.runtime.linux-x64/8.0.1/microsoft.netcore.app.runtime.linux-x64.8.0.1.nupkg.sha512",
+    "/home/onkel/.nuget/packages/microsoft.aspnetcore.app.runtime.linux-x64/8.0.1/microsoft.aspnetcore.app.runtime.linux-x64.8.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

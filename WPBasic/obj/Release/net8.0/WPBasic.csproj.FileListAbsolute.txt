@@ -1,0 +1,12 @@
+/home/onkel/source/WProduct/WPBasic/bin/Release/net8.0/WPBasic.deps.json
+/home/onkel/source/WProduct/WPBasic/bin/Release/net8.0/WPBasic.dll
+/home/onkel/source/WProduct/WPBasic/bin/Release/net8.0/WPBasic.pdb
+/home/onkel/source/WProduct/WPBasic/obj/Release/net8.0/WPBasic.GeneratedMSBuildEditorConfig.editorconfig
+/home/onkel/source/WProduct/WPBasic/obj/Release/net8.0/WPBasic.AssemblyInfoInputs.cache
+/home/onkel/source/WProduct/WPBasic/obj/Release/net8.0/WPBasic.AssemblyInfo.cs
+/home/onkel/source/WProduct/WPBasic/obj/Release/net8.0/WPBasic.csproj.CoreCompileInputs.cache
+/home/onkel/source/WProduct/WPBasic/obj/Release/net8.0/WPBasic.sourcelink.json
+/home/onkel/source/WProduct/WPBasic/obj/Release/net8.0/WPBasic.dll
+/home/onkel/source/WProduct/WPBasic/obj/Release/net8.0/refint/WPBasic.dll
+/home/onkel/source/WProduct/WPBasic/obj/Release/net8.0/WPBasic.pdb
+/home/onkel/source/WProduct/WPBasic/obj/Release/net8.0/ref/WPBasic.dll

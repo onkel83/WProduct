@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "2URDz2UKifWuj6AYjYBTUGa952AyRFBywVxQn7sYHuuJFXI+JiO2Ki/8rXBWrVr6Pm1yfhatqUWlTbnGYlP7aw==",
+  "dgSpecHash": "KFK4QgaTqXodJ13FRETem1MbNP606SZtWViK9Fsd3rtjaBRVOFgISbFn1HW6IbdZKVshoW8on9c9gpqvmORJBw==",
   "success": true,
   "projectFilePath": "/home/onkel/source/WProduct/TestAppConsole/TestAppConsole.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/onkel/.nuget/packages/microsoft.netcore.app.runtime.linux-x64/8.0.1/microsoft.netcore.app.runtime.linux-x64.8.0.1.nupkg.sha512",
+    "/home/onkel/.nuget/packages/microsoft.aspnetcore.app.runtime.linux-x64/8.0.1/microsoft.aspnetcore.app.runtime.linux-x64.8.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

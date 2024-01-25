@@ -1,0 +1,16 @@
+/home/onkel/source/WProduct/WPAZV/bin/Release/net8.0/WPAZV.deps.json
+/home/onkel/source/WProduct/WPAZV/bin/Release/net8.0/WPAZV.dll
+/home/onkel/source/WProduct/WPAZV/bin/Release/net8.0/WPAZV.pdb
+/home/onkel/source/WProduct/WPAZV/bin/Release/net8.0/WPBasic.dll
+/home/onkel/source/WProduct/WPAZV/bin/Release/net8.0/WPBasic.pdb
+/home/onkel/source/WProduct/WPAZV/obj/Release/net8.0/WPAZV.csproj.AssemblyReference.cache
+/home/onkel/source/WProduct/WPAZV/obj/Release/net8.0/WPAZV.GeneratedMSBuildEditorConfig.editorconfig
+/home/onkel/source/WProduct/WPAZV/obj/Release/net8.0/WPAZV.AssemblyInfoInputs.cache
+/home/onkel/source/WProduct/WPAZV/obj/Release/net8.0/WPAZV.AssemblyInfo.cs
+/home/onkel/source/WProduct/WPAZV/obj/Release/net8.0/WPAZV.csproj.CoreCompileInputs.cache
+/home/onkel/source/WProduct/WPAZV/obj/Release/net8.0/WPAZV.sourcelink.json
+/home/onkel/source/WProduct/WPAZV/obj/Release/net8.0/WPAZV.csproj.CopyComplete
+/home/onkel/source/WProduct/WPAZV/obj/Release/net8.0/WPAZV.dll
+/home/onkel/source/WProduct/WPAZV/obj/Release/net8.0/refint/WPAZV.dll
+/home/onkel/source/WProduct/WPAZV/obj/Release/net8.0/WPAZV.pdb
+/home/onkel/source/WProduct/WPAZV/obj/Release/net8.0/ref/WPAZV.dll

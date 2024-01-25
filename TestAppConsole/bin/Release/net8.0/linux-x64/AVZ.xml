@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfMArbeitsZeit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <MArbeitsZeit ID="1">
+    <EinsatzOrt>Frankfurt</EinsatzOrt>
+    <StartZeit>2024-01-27T14:30:00</StartZeit>
+    <EndZeit>2024-01-28T00:30:00</EndZeit>
+    <Pause>0</Pause>
+  </MArbeitsZeit>
+</ArrayOfMArbeitsZeit>
