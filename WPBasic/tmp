@@ -5,3 +5,5 @@ Settings.SetSetting("MySetting", "This is a Test Value");
 Settings.SaveToFile("settings.xml");
 string settingValue = Settings.GetSetting("MySetting");
 Console.WriteLine($"Setting value: {settingValue}");
+
+
