@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WPBasic")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aac1ca2689604c6b27b035d3fe7d0acee0a637b5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+68d925bef0db4af016e875a6d7b4fc6bb64540d7")]
 [assembly: System.Reflection.AssemblyProductAttribute("WPBasic")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WPBasic")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

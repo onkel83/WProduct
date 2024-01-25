@@ -1,15 +1,18 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Xml.Serialization;
+using WPBasic;
+using WPBasic.Logging;
 
 namespace WPAZV
 {
     public class ArbeitsZeitManager
     {
-        private const string XmlFilePath = "arbeitszeiten.xml";
+        public string XmlFilePath = "AVZ.xml";
 
-        private List<MArbeitsZeit> _arbeitszeiten;
+        public List<MArbeitsZeit> _arbeitszeiten;
 
         public ArbeitsZeitManager()
         {
@@ -61,12 +64,47 @@ namespace WPAZV
         public double GetTotalArbeitsZeitForMonth(int month)
         {
             // Filter the list to only include entries for the specified month
-            var filteredArbeitszeiten = _arbeitszeiten.Where(arbeit => arbeit.StartZeit.Month == month);
+            var filteredArbeitszeiten = _arbeitszeiten.Where(arbeit => arbeit.StartZeit.Month == month && arbeit.StartZeit.Year == DateTime.Now.Year);
 
             // Calculate the total working time for the filtered entries
             double totalArbeitsZeit = filteredArbeitszeiten.Sum(arbeit => arbeit.ArbeitsZeit);
 
             return totalArbeitsZeit;
+        }
+
+        public double GetTotalArbeitsZeitForYear(int year){
+            // Filter the list to only include entries for the specified month
+            var filteredArbeitszeiten = _arbeitszeiten.Where(arbeit => arbeit.StartZeit.Year == year);
+
+            // Calculate the total working time for the filtered entries
+            double totalArbeitsZeit = filteredArbeitszeiten.Sum(arbeit => arbeit.ArbeitsZeit);
+
+            return totalArbeitsZeit;
+        }
+
+        public double GetTotalArbeitsZeitForMonthAndYears(int month, int year){
+            var filteredArbeitszeiten = _arbeitszeiten.Where(arbeit => arbeit.StartZeit.Month == month && arbeit.StartZeit.Year == year);
+            double totalArbeitsZeit = filteredArbeitszeiten.Sum(arbeit => arbeit.ArbeitsZeit);
+
+            return totalArbeitsZeit;
+        }
+
+        public DateTime StringToDateTime(string value){
+            string input = value;
+            DateTime datetime;
+
+            if (DateTime.TryParseExact(input, "HH:mm dd.MM.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out datetime)){
+                return datetime;
+            } else {
+                string msg = "Invalid input string";
+                Log.AddLog(msg, ErrorLevel.Error);
+                Console.WriteLine(msg);
+            }
+            return DateTime.Now;
+        }
+
+        public string FormatDateTime(DateTime datetime){
+            return datetime.ToString("HH:mm dd.MM.yyyy", CultureInfo.InvariantCulture);
         }
 
 

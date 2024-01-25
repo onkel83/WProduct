@@ -41,7 +41,8 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "WPAZV >= 1.0.0"
+      "WPAZV >= 1.0.0",
+      "WPBasic >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -71,6 +72,9 @@
           "projectReferences": {
             "/home/onkel/source/WProduct/WPAZV/WPAZV.csproj": {
               "projectPath": "/home/onkel/source/WProduct/WPAZV/WPAZV.csproj"
+            },
+            "/home/onkel/source/WProduct/WPBasic/WPBasic.csproj": {
+              "projectPath": "/home/onkel/source/WProduct/WPBasic/WPBasic.csproj"
             }
           }
         }

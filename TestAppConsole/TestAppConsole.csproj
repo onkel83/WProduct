@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WPAZV\WPAZV.csproj" />
+    <ProjectReference Include="..\WPBasic\WPBasic.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

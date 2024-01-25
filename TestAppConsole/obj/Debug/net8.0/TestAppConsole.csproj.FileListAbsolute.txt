@@ -17,3 +17,5 @@
 /home/onkel/source/WProduct/TestAppConsole/obj/Debug/net8.0/TestAppConsole.pdb
 /home/onkel/source/WProduct/TestAppConsole/obj/Debug/net8.0/TestAppConsole.genruntimeconfig.cache
 /home/onkel/source/WProduct/TestAppConsole/obj/Debug/net8.0/ref/TestAppConsole.dll
+/home/onkel/source/WProduct/TestAppConsole/bin/Debug/net8.0/WPAZV.dll
+/home/onkel/source/WProduct/TestAppConsole/bin/Debug/net8.0/WPAZV.pdb

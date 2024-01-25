@@ -6,15 +6,6 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "TestAppConsole/1.0.0": {
-        "dependencies": {
-          "WPAZV": "1.0.0",
-          "WPBasic": "1.0.0"
-        },
-        "runtime": {
-          "TestAppConsole.dll": {}
-        }
-      },
       "WPAZV/1.0.0": {
         "dependencies": {
           "WPBasic": "1.0.0"
@@ -31,11 +22,6 @@
     }
   },
   "libraries": {
-    "TestAppConsole/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "WPAZV/1.0.0": {
       "type": "project",
       "serviceable": false,
