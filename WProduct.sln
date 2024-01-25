@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPBasic", "WPBasic\WPBasic.csproj", "{B0344263-4E2D-4B98-A002-CA80720240DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAppConsole", "TestAppConsole\TestAppConsole.csproj", "{B56911F3-1808-44CB-8131-F464FB56C50C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0344263-4E2D-4B98-A002-CA80720240DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0344263-4E2D-4B98-A002-CA80720240DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0344263-4E2D-4B98-A002-CA80720240DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0344263-4E2D-4B98-A002-CA80720240DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B56911F3-1808-44CB-8131-F464FB56C50C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B56911F3-1808-44CB-8131-F464FB56C50C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B56911F3-1808-44CB-8131-F464FB56C50C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B56911F3-1808-44CB-8131-F464FB56C50C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
