@@ -1,9 +1,44 @@
-using WPBasic;
-// Load settings from file
-Settings.LoadFromFile("settings.xml");
-Settings.SetSetting("MySetting", "This is a Test Value");
-Settings.SaveToFile("settings.xml");
-string settingValue = Settings.GetSetting("MySetting");
-Console.WriteLine($"Setting value: {settingValue}");
 
 
+    
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            MitarbeiterRepository mitarbeiterRepository = new MitarbeiterRepository();
+
+            // Add
+            Mitarbeiter mitarbeiter1 = new Mitarbeiter { ID = 1, Nachname = "Mustermann", Vorname = "Max", Geburstag = new DateTime(1990, 12, 24), Handynummer = "0123456789", Geschlecht = 'M' };
+            mitarbeiterRepository.Add(mitarbeiter1);
+
+            Mitarbeiter mitarbeiter2 = new Mitarbeiter { ID = 2, Nachname = "Mustermann", Vorname = "Moritz", Geburstag = new DateTime(1991, 3, 14), Handynummer = "0123456789", Geschlecht = 'M' };
+            mitarbeiterRepository.Add(mitarbeiter2);
+
+            // Edit
+            mitarbeiter1.Nachname = "Musterfrau";
+            mitarbeiter1.Vorname = "Maria";
+            mitarbeiter1.Geburstag = new DateTime(1992, 4, 12);
+            mitarbeiterRepository.Edit(mitarbeiter1);
+
+            // Delete
+            mitarbeiterRepository.Delete(2);
+
+            // GetAll
+            List<Mitarbeiter> mitarbeiterList = mitarbeiterRepository.GetAll();
+            foreach (var mitarbeiter in mitarbeiterList)
+            {
+                Console.WriteLine($"ID: {mitarbeiter.ID}, Nachname: {mitarbeiter.Nachname}, Vorname: {mitarbeiter.Vorname}, Geburstag: {mitarbeiter.Geburstag}, Handynummer: {mitarbeiter.Handynummer}, Geschlecht: {mitarbeiter.Geschlecht}");
+            }
+
+            // GetByID
+            Mitarbeiter mitarbeiter = mitarbeiterRepository.GetByID(1);
+            Console.WriteLine($"ID: {mitarbeiter.ID}, Nachname: {mitarbeiter.Nachname}, Vorname: {mitarbeiter.Vorname}, Geburstag: {mitarbeiter.Geburstag}, Handynummer: {mitarbeiter.Handynummer}, Geschlecht: {mitarbeiter.Geschlecht}");
+
+            // SaveToXml
+            mitarbeiterRepository.SaveToXml("mitarbeiter.xml");
+
+            Console.ReadLine();
+        }
+    }
+}

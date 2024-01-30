@@ -1,81 +1,36 @@
-﻿// See https://aka.ms/new-console-template for more information
-using WPAZV;
-using WPBasic;
+﻿
+using WPAZV.Model;
+using WPAZV.Repository;
 
-Settings.LoadFromFile("settings.xml");
-Settings.SetSetting("ArbeitsZeit", "AVZ.xml");
-Settings.SaveToFile("settings.xml");
-ArbeitsZeitManager azv = new ArbeitsZeitManager();
-azv.XmlFilePath = Settings.GetSetting("ArbeitsZeit");
- /*
-azv.AddArbeitsZeit(new MArbeitsZeit{
-    ID = azv._arbeitszeiten.Count + 1,
-    EinsatzOrt = Console.In.ReadLine(),
-    StartZeit = azv.StringToDateTime(Console.In.ReadLine()),
-    EndZeit = azv.StringToDateTime(Console.In.ReadLine()),
-    Pause = Convert.ToDouble(Console.In.ReadLine())
-}); 
- */
- MainMenue();
+var mitarbeiterRepository = new MitarbeiterRepository();
 
-static void MainMenue(){
-    string _menue = "";
-    while(_menue != "exit"){
-        LogikMainMenue(_menue);
-        _menue = Console.In.ReadLine();
-    }
-}
+            // Add
+            Employee mitarbeiter1 = new Employee { ID = 1, LastName = "Mustermann", FirstName = "Max", Birthday = new DateTime(1990, 12, 24), PhoneNumber = "0123456789", Gender = 'M' };
+            mitarbeiterRepository.Add(mitarbeiter1);
 
-static void LogikMainMenue(string value){
-    switch(value.ToLower()){
-        case "new" : GetNewEntry();break;
-        case "list -a": ArbeitsZeitManager avz = new ArbeitsZeitManager(); ShowAllArbeitzeiten(avz);break;
-        default : ShowMainMenue();break; 
-    }
-}
+            Employee mitarbeiter2 = new Employee { ID = 2, LastName = "Mustermann", FirstName = "Moritz", Birthday = new DateTime(1991, 3, 14), PhoneNumber = "0123456789", Gender = 'M' };
+            mitarbeiterRepository.Add(mitarbeiter2);
 
-static void ShowMainMenue(){
-    Console.WriteLine($"Willkommen bei der Stundenverwaltung !");
-    Console.WriteLine($"Da Die Anwendung Konsolen gesteuert ist benötigst du folgende befehle :");
-    Console.WriteLine($"[new] Fügt einen neuen Stunden Eintrag hinzu");
-    Console.WriteLine($"[list -a] Wird alle vorhanden Einträge ausgeben");
-    Console.WriteLine($"Platzhalter");
-    Console.WriteLine($"Platzhalter");
-    Console.WriteLine($"Platzhalter");
-    Console.WriteLine($"[exit] beendet die Anwendung");
-}
-static void GetNewEntry(){
-    ArbeitsZeitManager azv = new ArbeitsZeitManager();
-    azv.XmlFilePath = Settings.GetSetting("ArbeitsZeit");
-    string _ort;
-    string _start;
-    string _ende;
-    string _pause;
-    Console.WriteLine("Neu Eingabe von Arbeitszeit :");
-    Console.WriteLine("Bitte geben sie den Einsatz Ort ein : ");
-    _ort = Console.In.ReadLine();
-    Console.WriteLine("Bitte geben sie die Start Zeit/Datum ein (Format: hh:mm dd.MM.yyyy) :");
-    _start = Console.In.ReadLine();
-    Console.WriteLine("Bitte geben sie die End Zeit/Datum ein (Format: hh:mm dd.MM.yyyy) :");
-    _ende = Console.In.ReadLine();
-    Console.WriteLine("Bitte geben sie die Pausen in decimal/Stunden ein:");
-    _pause = Console.In.ReadLine();
-    azv.AddArbeitsZeit(new MArbeitsZeit{
-        ID = azv._arbeitszeiten.Count + 1,
-        EinsatzOrt = _ort,
-        StartZeit = azv.StringToDateTime(_start),
-        EndZeit = azv.StringToDateTime(_ende),
-        Pause = Convert.ToDouble(_pause)
-    });
-}
+            // Edit
+            mitarbeiter1.LastName = "Musterfrau";
+            mitarbeiter1.FirstName = "Maria";
+            mitarbeiter1.Birthday = new DateTime(1992, 4, 12);
+            mitarbeiterRepository.Edit(mitarbeiter1);
 
-static void ShowAllArbeitzeiten(ArbeitsZeitManager azv){
-    foreach(MArbeitsZeit _avz in azv._arbeitszeiten){
-        Console.WriteLine($"Einsatz Ort : {_avz.EinsatzOrt}");
-        Console.WriteLine($"Beginn      : {azv.FormatDateTime(_avz.StartZeit)}");
-        Console.WriteLine($"Ende        : {azv.FormatDateTime(_avz.EndZeit)}");
-        Console.WriteLine($"Pausen in h : {_avz.Pause}");
-        Console.WriteLine($"Gesamt Arbeitszeit : {_avz.ArbeitsZeit.ToString()}");
-        Console.WriteLine("###################################################################");
-    }
-}
+            // Delete
+            mitarbeiterRepository.Delete(2);
+
+            // GetAll
+            List<Employee> mitarbeiterList = mitarbeiterRepository.GetAll();
+            foreach (Employee _mitarbeiter in mitarbeiterList){
+                Console.WriteLine($"ID: {_mitarbeiter.ID}, Nachname: {_mitarbeiter.LastName}, Vorname: {_mitarbeiter.FirstName}, Geburstag: {_mitarbeiter.Birthday}, Handynummer: {_mitarbeiter.PhoneNumber}, Geschlecht: {_mitarbeiter.Gender}");
+            }
+
+            // GetByID
+            Employee mitarbeiter = mitarbeiterRepository.GetByID(1);
+            Console.WriteLine($"ID: {mitarbeiter.ID}, Nachname: {mitarbeiter.LastName}, Vorname: {mitarbeiter.FirstName}, Geburstag: {mitarbeiter.Birthday}, Handynummer: {mitarbeiter.PhoneNumber}, Geschlecht: {mitarbeiter.Gender}");
+
+            // SaveToXml
+            mitarbeiterRepository.SaveToXml("mitarbeiter.xml");
+
+            Console.ReadLine();

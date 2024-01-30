@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QLQQwVVXamQkFjVzo2noiBU9l0n2994bk6LgFbWrOx8kAey6Is1JvRI6MFry4j+tqAk280qFBwciJW5Shn6XGw==",
+  "dgSpecHash": "20bgGvpE3+Y3IJ/XULDPah9M9Q5P86lnqGTbJuibeWI6rpuQqRGThrMYQTIbVAF6GIBOJ5pFlPLEBg7y5KKaEg==",
   "success": true,
   "projectFilePath": "/home/onkel/source/WProduct/WPBasic/WPBasic.csproj",
-  "expectedPackageFiles": [
-    "/home/onkel/.nuget/packages/microsoft.netcore.app.runtime.linux-x64/8.0.1/microsoft.netcore.app.runtime.linux-x64.8.0.1.nupkg.sha512",
-    "/home/onkel/.nuget/packages/microsoft.aspnetcore.app.runtime.linux-x64/8.0.1/microsoft.aspnetcore.app.runtime.linux-x64.8.0.1.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
