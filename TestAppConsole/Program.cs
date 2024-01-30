@@ -1,37 +1,59 @@
-﻿
-using WPAZV.Model;
-using WPAZV.Repository;
+﻿#pragma warning disable CS8604
+using WPAZV.Controller;
+using WPBasic;
 
-var mitarbeiterRepository = new MitarbeiterRepository();
+var controller = new WorktimeController(Settings.GetSetting("WTC") + ".xml");
+var _econtroller = new EmployeeController(Settings.GetSetting("EC") + ".xml");
 
-            // Add
-            Employee mitarbeiter1 = new Employee { ID = 1, LastName = "Mustermann", FirstName = "Max", Birthday = new DateTime(1990, 12, 24), PhoneNumber = "0123456789", Gender = 'M' };
-            mitarbeiterRepository.Add(mitarbeiter1);
+Console.WriteLine("Welcome to the worktime application.");
 
-            Employee mitarbeiter2 = new Employee { ID = 2, LastName = "Mustermann", FirstName = "Moritz", Birthday = new DateTime(1991, 3, 14), PhoneNumber = "0123456789", Gender = 'M' };
-            mitarbeiterRepository.Add(mitarbeiter2);
+while (true)
+{
+    Console.WriteLine("Please select an option:");
+    Console.WriteLine("1. Add worktime entry");
+    Console.WriteLine("2. Edit worktime entry");
+    Console.WriteLine("3. Delete worktime entry");
+    Console.WriteLine("4. View worktime entries");
+    Console.WriteLine("5. Add Employer");
+    Console.WriteLine("6. Edit Employer");
+    Console.WriteLine("7. Delete Employer");
+    Console.WriteLine("8. View Employer");
+    Console.WriteLine("q. Quit");
 
-            // Edit
-            mitarbeiter1.LastName = "Musterfrau";
-            mitarbeiter1.FirstName = "Maria";
-            mitarbeiter1.Birthday = new DateTime(1992, 4, 12);
-            mitarbeiterRepository.Edit(mitarbeiter1);
+    var input = Console.ReadLine();
 
-            // Delete
-            mitarbeiterRepository.Delete(2);
-
-            // GetAll
-            List<Employee> mitarbeiterList = mitarbeiterRepository.GetAll();
-            foreach (Employee _mitarbeiter in mitarbeiterList){
-                Console.WriteLine($"ID: {_mitarbeiter.ID}, Nachname: {_mitarbeiter.LastName}, Vorname: {_mitarbeiter.FirstName}, Geburstag: {_mitarbeiter.Birthday}, Handynummer: {_mitarbeiter.PhoneNumber}, Geschlecht: {_mitarbeiter.Gender}");
-            }
-
-            // GetByID
-            Employee? mitarbeiter = mitarbeiterRepository.GetByID(1);
-            if(mitarbeiter != null)
-                Console.WriteLine($"ID: {mitarbeiter.ID}, Nachname: {mitarbeiter.LastName}, Vorname: {mitarbeiter.FirstName}, Geburstag: {mitarbeiter.Birthday}, Handynummer: {mitarbeiter.PhoneNumber}, Geschlecht: {mitarbeiter.Gender}");
-
-            // SaveToXml
-            mitarbeiterRepository.SaveToXml("mitarbeiter.xml");
-
-            Console.ReadLine();
+    switch (input)
+    {
+        case "1":
+            controller.Add();
+            break;
+        case "2":
+            Console.WriteLine("Bitte gib die ID der Arbeitszeit ein :");
+            var WTCEid = int.Parse(Console.ReadLine());
+            controller.Edit(WTCEid);
+            break;
+        case "3":
+            Console.WriteLine("Bitte gib die ID der Arbeitzeit ein :");
+            var WTCDid = int.Parse(Console.ReadLine());
+            controller.Delete(WTCDid);
+            break;
+        case "4":
+            controller.ViewWorktime();
+            break;
+        case "5" :
+            break;
+        case "6" :
+            break;
+        case "7" :
+            break;
+        case "8" :
+            break;
+        case "q":
+            Environment.Exit(0);
+            break;
+        default:
+            Console.WriteLine("Invalid input. Please try again.");
+            break;
+    }
+}
+#pragma warning restore CS8604

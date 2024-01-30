@@ -1,27 +1,31 @@
-using System.Xml.Linq;
 using System.Xml.Serialization;
 using WPAZV.Model;
+using WPAZV.ViewModel;
+using WPBasic.Logging;
 
 namespace WPAZV.Repository
 {
-    public class MitarbeiterRepository
-    {
+    public class WorktimeRepository{
         private readonly string _xmlFilePath;
 
-        public MitarbeiterRepository(string xmlFilePath)
-        {
+        public WorktimeRepository(string xmlFilePath){
             _xmlFilePath = xmlFilePath;
         }
 
-        public List<Employee>? GetAll(){
-            var serializer = new XmlSerializer(typeof(List<Employee>));
-            using (var fileStream = new FileStream(_xmlFilePath, FileMode.Open)){
-                return serializer.Deserialize(fileStream) as List<Employee>;
+        public List<WorktimeViewModel> GetAll(){
+            var serializer = new XmlSerializer(typeof(List<WorktimeViewModel>));
+            try{
+                using (var fileStream = new FileStream(_xmlFilePath, FileMode.Open)){
+                    return serializer.Deserialize(fileStream) as List<WorktimeViewModel>;
+                }
+            }catch(Exception ex){
+                new LogEntry(DateTime.Now, ex.Message, ErrorLevel.Error);
+                return new List<WorktimeViewModel>();
             }
         }
 
-        public void Add(Employee entry){
-            var serializer = new XmlSerializer(typeof(List<Employee>));
+        public void Add(WorktimeViewModel entry){
+            var serializer = new XmlSerializer(typeof(List<WorktimeViewModel>));
             using (var fileStream = new FileStream(_xmlFilePath, FileMode.Create)){
                 var entries = GetAll();
                 if(entries != null){
@@ -31,8 +35,8 @@ namespace WPAZV.Repository
             }
         }
 
-        public void Edit(Employee entry){
-            var serializer = new XmlSerializer(typeof(List<Employee>));
+        public void Edit(WorktimeViewModel entry){
+            var serializer = new XmlSerializer(typeof(List<WorktimeViewModel>));
             using (var fileStream = new FileStream(_xmlFilePath, FileMode.Open)){
                 var entries = GetAll();
                 if(entries != null){
@@ -46,7 +50,7 @@ namespace WPAZV.Repository
         }
 
         public void Delete(int id){
-            var serializer = new XmlSerializer(typeof(List<Employee>));
+            var serializer = new XmlSerializer(typeof(List<WorktimeViewModel>));
             using (var fileStream = new FileStream(_xmlFilePath, FileMode.Open)){
                 var entries = GetAll();
                 if(entries != null){

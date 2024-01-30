@@ -2,6 +2,7 @@ using WPAZV.Interfaces;
 
 namespace WPAZV.Model
 {
+    [Serializable]
     public class Employee : IEmployee
     {
         public int ID { get; set; }

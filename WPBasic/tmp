@@ -1,44 +1,34 @@
 
-
-    
-
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            MitarbeiterRepository mitarbeiterRepository = new MitarbeiterRepository();
+var mitarbeiterRepository = new MitarbeiterRepository();
 
             // Add
-            Mitarbeiter mitarbeiter1 = new Mitarbeiter { ID = 1, Nachname = "Mustermann", Vorname = "Max", Geburstag = new DateTime(1990, 12, 24), Handynummer = "0123456789", Geschlecht = 'M' };
+            Employee mitarbeiter1 = new Employee { ID = 1, LastName = "Mustermann", FirstName = "Max", Birthday = new DateTime(1990, 12, 24), PhoneNumber = "0123456789", Gender = 'M' };
             mitarbeiterRepository.Add(mitarbeiter1);
 
-            Mitarbeiter mitarbeiter2 = new Mitarbeiter { ID = 2, Nachname = "Mustermann", Vorname = "Moritz", Geburstag = new DateTime(1991, 3, 14), Handynummer = "0123456789", Geschlecht = 'M' };
+            Employee mitarbeiter2 = new Employee { ID = 2, LastName = "Mustermann", FirstName = "Moritz", Birthday = new DateTime(1991, 3, 14), PhoneNumber = "0123456789", Gender = 'M' };
             mitarbeiterRepository.Add(mitarbeiter2);
 
-            // Edit
-            mitarbeiter1.Nachname = "Musterfrau";
-            mitarbeiter1.Vorname = "Maria";
-            mitarbeiter1.Geburstag = new DateTime(1992, 4, 12);
+/*            // Edit
+            mitarbeiter1.LastName = "Musterfrau";
+            mitarbeiter1.FirstName = "Maria";
+            mitarbeiter1.Birthday = new DateTime(1992, 4, 12);
             mitarbeiterRepository.Edit(mitarbeiter1);
-
+/*
             // Delete
             mitarbeiterRepository.Delete(2);
-
+*/
             // GetAll
-            List<Mitarbeiter> mitarbeiterList = mitarbeiterRepository.GetAll();
-            foreach (var mitarbeiter in mitarbeiterList)
-            {
-                Console.WriteLine($"ID: {mitarbeiter.ID}, Nachname: {mitarbeiter.Nachname}, Vorname: {mitarbeiter.Vorname}, Geburstag: {mitarbeiter.Geburstag}, Handynummer: {mitarbeiter.Handynummer}, Geschlecht: {mitarbeiter.Geschlecht}");
+            List<Employee> mitarbeiterList = mitarbeiterRepository.GetAll();
+            foreach (Employee _mitarbeiter in mitarbeiterList){
+                Console.WriteLine($"ID: {_mitarbeiter.ID}, Nachname: {_mitarbeiter.LastName}, Vorname: {_mitarbeiter.FirstName}, Geburstag: {_mitarbeiter.Birthday}, Handynummer: {_mitarbeiter.PhoneNumber}, Geschlecht: {_mitarbeiter.Gender}");
             }
-
+/*
             // GetByID
-            Mitarbeiter mitarbeiter = mitarbeiterRepository.GetByID(1);
-            Console.WriteLine($"ID: {mitarbeiter.ID}, Nachname: {mitarbeiter.Nachname}, Vorname: {mitarbeiter.Vorname}, Geburstag: {mitarbeiter.Geburstag}, Handynummer: {mitarbeiter.Handynummer}, Geschlecht: {mitarbeiter.Geschlecht}");
-
+            Employee? mitarbeiter = mitarbeiterRepository.GetByID(1);
+            if(mitarbeiter != null)
+                Console.WriteLine($"ID: {mitarbeiter.ID}, Nachname: {mitarbeiter.LastName}, Vorname: {mitarbeiter.FirstName}, Geburstag: {mitarbeiter.Birthday}, Handynummer: {mitarbeiter.PhoneNumber}, Geschlecht: {mitarbeiter.Gender}");
+*/
             // SaveToXml
             mitarbeiterRepository.SaveToXml("mitarbeiter.xml");
 
             Console.ReadLine();
-        }
-    }
-}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfWorktimeViewModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <WorktimeViewModel>
+    <ID>2</ID>
+    <UserID>1</UserID>
+    <Einsatzort>Willingen Tag1 2024</Einsatzort>
+    <Startzeit>2024-02-02T06:30:00</Startzeit>
+    <Endzeit>2024-02-02T20:00:00</Endzeit>
+    <Pause>0</Pause>
+  </WorktimeViewModel>
+</ArrayOfWorktimeViewModel>
