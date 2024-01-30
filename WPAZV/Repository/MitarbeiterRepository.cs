@@ -63,7 +63,7 @@ namespace WPAZV.Repository
             return _mitarbeiter;
         }
 
-        public Employee GetByID(int id)
+        public Employee? GetByID(int id)
         {
             if(_mitarbeiter.FirstOrDefault(m => m.ID == id) != null)
                 return _mitarbeiter.FirstOrDefault(m => m.ID == id);

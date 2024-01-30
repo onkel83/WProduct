@@ -27,8 +27,9 @@ var mitarbeiterRepository = new MitarbeiterRepository();
             }
 
             // GetByID
-            Employee mitarbeiter = mitarbeiterRepository.GetByID(1);
-            Console.WriteLine($"ID: {mitarbeiter.ID}, Nachname: {mitarbeiter.LastName}, Vorname: {mitarbeiter.FirstName}, Geburstag: {mitarbeiter.Birthday}, Handynummer: {mitarbeiter.PhoneNumber}, Geschlecht: {mitarbeiter.Gender}");
+            Employee? mitarbeiter = mitarbeiterRepository.GetByID(1);
+            if(mitarbeiter != null)
+                Console.WriteLine($"ID: {mitarbeiter.ID}, Nachname: {mitarbeiter.LastName}, Vorname: {mitarbeiter.FirstName}, Geburstag: {mitarbeiter.Birthday}, Handynummer: {mitarbeiter.PhoneNumber}, Geschlecht: {mitarbeiter.Gender}");
 
             // SaveToXml
             mitarbeiterRepository.SaveToXml("mitarbeiter.xml");
