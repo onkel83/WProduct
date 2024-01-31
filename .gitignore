@@ -1,8 +1,6 @@
-TestAppConsole/bin/*
-TestAppConsole/obj/*
-
-WPAZV/bin/*
-WPAZV/obj/*
-
-WPBasic/bin/*
-WPBasic/obj/*
+~/source/WProduct/TestAppConsole/bin/*
+~/source/WProduct/TestAppConsole/obj/*
+~/source/WProduct/WPAZV/bin/*
+~/source/WProduct/WPAZV/obj/*
+~/source/WProduct/WPBasic/bin/*
+~/source/WProduct/WPBasic/obj/*
