@@ -1,10 +1,11 @@
 #pragma warning disable CS8601, CS8602, CS8604
 using WPAZV.Repository;
 using WPAZV.ViewModel;
+using WPBasic.Logging;
 
-namespace WPAZV.Controller
+namespace WPAZV.Controller 
 {
-    public class EmployeeController
+    public class EmployeeController : IController
     {
         private readonly EmployeeRepository _repository;
 
@@ -13,7 +14,7 @@ namespace WPAZV.Controller
             _repository = new EmployeeRepository(xmlFilePath);
         }
 
-        public void Add()
+        public void _Add()
         {
             var entry = new EmployeeViewModel();
             Console.Write("Nachname: ");
@@ -26,29 +27,39 @@ namespace WPAZV.Controller
             entry.PhoneNumber = Console.ReadLine();
             Console.Write("Geschlecht (M/W/D): ");
             entry.Gender = Console.ReadKey().KeyChar;
-            entry.ID = Convert.ToInt32(_repository.GetAll().OrderBy(u => u.ID).LastOrDefault().ID) + 1;
-            _repository.Add(entry);
-            Console.WriteLine("Worktime entry added successfully.");
+            try{
+                entry.ID = Convert.ToInt32(_repository.GetAll().OrderBy(u => u.ID).LastOrDefault().ID) + 1;
+                _repository.Add(entry);
+                Console.WriteLine("Worktime entry added successfully.");
+            }catch(Exception ex){
+                Log.AddLog(ex.Message, ErrorLevel.Error);
+                Console.WriteLine($"Error in EmployeeController.Add : {ex.Message}");
+            }
         }
 
-        public void Edit(int id)
+        public void _Edit(int id)
         {
             var entry = _repository.GetAll().Find(e => e.ID == id);
             if (entry != null)
             {
-                /*
-                Console.Write("Einsatzort: ");
-                entry.Einsatzort = Console.ReadLine();
-                Console.Write("Startzeit: ");
-                entry.Startzeit = DateTime.Parse(Console.ReadLine());
-                Console.Write("Endzeit: ");
-                entry.Endzeit = DateTime.Parse(Console.ReadLine());
-                Console.Write("Pause: ");
-                entry.Pause = decimal.Parse(Console.ReadLine());
-                _repository.Edit(entry);
-                Console.WriteLine("Worktime entry updated successfully.");
-                */
-                Console.WriteLine("Hier würde Normalerweiße die Daten geändert werden!");
+                
+                Console.Write("Nachname : ");
+                entry.LastName = Console.ReadLine();
+                Console.Write("Vorname: ");
+                entry.FirstName = Console.ReadLine();
+                Console.Write("Geburstag: ");
+                entry.Birthday = DateTime.Parse(Console.ReadLine());
+                Console.Write("Telefon: ");
+                entry.PhoneNumber = Console.ReadLine();
+                Console.Write("Geschlecht (M/W/D) : ");
+                entry.Gender = Convert.ToChar(Console.ReadKey());
+                try{
+                    _repository.Edit(entry);
+                    Console.WriteLine("Worktime entry updated successfully.");
+                }catch(Exception ex){
+                    Log.AddLog(ex.Message, ErrorLevel.Error);
+                    Console.WriteLine($"Error in EmployeeController.Edit : {ex.Message}");
+                }
             }
             else
             {
@@ -56,13 +67,18 @@ namespace WPAZV.Controller
             }
         }
 
-        public void Delete(int id)
+        public void _Delete(int id)
         {
             var entry = _repository.GetAll().Find(e => e.ID == id);
             if (entry != null)
             {
-                _repository.Delete(id);
-                Console.WriteLine("Employee deleted successfully.");
+                try{
+                    _repository.Delete(id);
+                    Console.WriteLine("Employee deleted successfully.");
+                }catch(Exception ex){
+                    Log.AddLog(ex.Message, ErrorLevel.Error);
+                    Console.WriteLine($"Error in EmployeeController.Delete : {ex.Message}");
+                }
             }
             else
             {
@@ -70,7 +86,7 @@ namespace WPAZV.Controller
             }
         }
 
-        public void View()
+        public void _View()
         {
             var entries = _repository.GetAll();
             foreach (var entry in entries)
@@ -81,6 +97,12 @@ namespace WPAZV.Controller
                 Console.WriteLine($"Geburstag: {entry.Birthday}");
                 Console.WriteLine($"Telefon: {entry.PhoneNumber}");
                 Console.WriteLine($"Geschlecht: {entry.Gender}");
+            }
+        }
+
+        public void Action(string view = "view", string data = "0"){
+            switch(view.ToLower()){
+                default : _View();break;
             }
         }
     }
