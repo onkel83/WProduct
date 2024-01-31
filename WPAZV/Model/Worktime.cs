@@ -1,6 +1,8 @@
+using WPBasic;
+
 namespace WPAZV.Model{
     [Serializable]
-    public class Worktime{
+    public class Worktime : BasisViewModel, IWorktime{
 
         public int ID { get; set; }
         public int UserID { get; set; }
@@ -11,6 +13,7 @@ namespace WPAZV.Model{
         public decimal Arbeitszeit { get => Convert.ToDecimal((Endzeit-Startzeit).TotalHours) - Pause;}
 
         public Worktime(){
+            Einsatzort = "";
         }
     }
 }

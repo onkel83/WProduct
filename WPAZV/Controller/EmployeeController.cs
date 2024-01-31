@@ -6,11 +6,11 @@ namespace WPAZV.Controller
 {
     public class EmployeeController
     {
-        private readonly MitarbeiterRepository _repository;
+        private readonly EmployeeRepository _repository;
 
         public EmployeeController(string xmlFilePath)
         {
-            _repository = new MitarbeiterRepository(xmlFilePath);
+            _repository = new EmployeeRepository(xmlFilePath);
         }
 
         public void Add()

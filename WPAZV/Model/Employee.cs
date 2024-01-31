@@ -1,9 +1,10 @@
 using WPAZV.Interfaces;
+using WPBasic;
 
 namespace WPAZV.Model
 {
     [Serializable]
-    public class Employee : IEmployee
+    public class Employee :BasisViewModel, IEmployee
     {
         public int ID { get; set; }
         public string LastName { get; set; }

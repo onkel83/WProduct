@@ -1,5 +1,4 @@
 using System.Xml.Serialization;
-using WPAZV.Model;
 using WPAZV.ViewModel;
 using WPBasic.Logging;
 
@@ -16,7 +15,9 @@ namespace WPAZV.Repository
             var serializer = new XmlSerializer(typeof(List<WorktimeViewModel>));
             try{
                 using (var fileStream = new FileStream(_xmlFilePath, FileMode.Open)){
+                    #pragma warning disable CS8603
                     return serializer.Deserialize(fileStream) as List<WorktimeViewModel>;
+                    #pragma warning restore CS8603
                 }
             }catch(Exception ex){
                 new LogEntry(DateTime.Now, ex.Message, ErrorLevel.Error);

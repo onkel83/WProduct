@@ -4,11 +4,11 @@ using WPAZV.Model;
 
 namespace WPAZV.Repository
 {
-    public class MitarbeiterRepository
+    public class EmployeeRepository
     {
         private readonly string _xmlFilePath;
 
-        public MitarbeiterRepository(string xmlFilePath)
+        public EmployeeRepository(string xmlFilePath)
         {
             _xmlFilePath = xmlFilePath;
         }
