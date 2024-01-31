@@ -2,4 +2,5 @@
 <Settings>
   <Setting Name="WTC" Value="Arbeitszeit" />
   <Setting Name="EC" Value="Mitarbeiter" />
+  <Setting Name="Log" Value="log" />
 </Settings>

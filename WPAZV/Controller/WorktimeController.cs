@@ -1,5 +1,6 @@
 #pragma warning disable CS8601, CS8602, CS8604
 using WPAZV.Model;
+using WPBasic.Logging;
 using WPAZV.Repository;
 using WPAZV.ViewModel;
 
@@ -29,8 +30,13 @@ namespace WPAZV.Controller
             entry.Endzeit = DateTime.Parse(Console.ReadLine());
             Console.Write("Pause: ");
             entry.Pause = decimal.Parse(Console.ReadLine());
-            _repository.Add(entry);
-            Console.WriteLine("Worktime entry added successfully.");
+            try{
+                _repository.Add(entry);
+                Console.WriteLine("Worktime entry added successfully.");
+            }catch(Exception ex){
+                Log.AddLog(ex.Message, ErrorLevel.Error);
+                Console.WriteLine($"Error in WorktimeController.Add : {ex.Message}");
+            }
         }
 
         public void Edit(int id)
@@ -46,11 +52,15 @@ namespace WPAZV.Controller
                 entry.Endzeit = DateTime.Parse(Console.ReadLine());
                 Console.Write("Pause: ");
                 entry.Pause = decimal.Parse(Console.ReadLine());
-                _repository.Edit(entry);
-                Console.WriteLine("Worktime entry updated successfully.");
+                try{
+                    _repository.Edit(entry);
+                    Console.WriteLine("Worktime entry updated successfully.");
+                }catch(Exception ex){
+                    Log.AddLog(ex.Message, ErrorLevel.Error);
+                    Console.WriteLine($"Error in Worktime.Edit : {ex.Message}");
+                }
             }
-            else
-            {
+            else{
                 Console.WriteLine("Worktime entry not found.");
             }
         }
@@ -60,8 +70,13 @@ namespace WPAZV.Controller
             var entry = _repository.GetAll().Find(e => e.ID == id);
             if (entry != null)
             {
+                try{
                 _repository.Delete(id);
                 Console.WriteLine("Worktime entry deleted successfully.");
+                }catch(Exception ex){
+                    Log.AddLog(ex.Message, ErrorLevel.Error);
+                    Console.WriteLine($"Error in Worktime.Delete : {ex.Message}");
+                }
             }
             else
             {

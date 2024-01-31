@@ -4,7 +4,7 @@ namespace WPBasic.Logging{
         Error,
         Warnung
     }
-    public class LogEntry{
+    public class LogEntry : Interface.ILogEntry{
         #region Public Members
         public DateTime Date { get; set; }
         public string Message { get; set; }

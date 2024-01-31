@@ -22,7 +22,7 @@ namespace WPBasic.Logging
     {
         private static List<LogEntry> _logEntries = new List<LogEntry>();
 
-        private static string _logFilePath = "log.xml";
+        private static string _logFilePath = Settings.GetSetting("Log")+".xml";
 
         public static void AddLog(string message, ErrorLevel level)
         {
