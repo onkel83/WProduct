@@ -1,0 +1,8 @@
+{
+    "explorer.excludeGitIgnore": true,
+    "search.useGlobalIgnoreFiles": true,
+    "files.exclude": {
+        "**/bin/*": true,
+        "**/obj/*": true
+    }
+}
