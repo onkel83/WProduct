@@ -13,17 +13,28 @@ namespace WPAZV.Repository
             _xmlFilePath = xmlFilePath;
         }
 
-        public List<Employee>? GetAll(){
+        public List<Employee>? Get(string id ="0"){
             var serializer = new XmlSerializer(typeof(List<Employee>));
+            List<Employee> _tmp = new();
             using (var fileStream = new FileStream(_xmlFilePath, FileMode.Open)){
-                return serializer.Deserialize(fileStream) as List<Employee>;
+                _tmp = serializer.Deserialize(fileStream) as List<Employee>;
             }
+            if(id != "0"){
+                foreach(Employee e in _tmp){
+                    if(e.ID + "" == id){
+                        var result = new List<Employee>();
+                        result.Add(e);
+                        return result;
+                    }
+                }
+            }
+            return _tmp;
         }
 
         public void Add(Employee entry){
             var serializer = new XmlSerializer(typeof(List<Employee>));
             using (var fileStream = new FileStream(_xmlFilePath, FileMode.Create)){
-                var entries = GetAll();
+                var entries = Get();
                 if(entries != null){
                     entries.Add(entry);
                     serializer.Serialize(fileStream, entries);
@@ -34,7 +45,7 @@ namespace WPAZV.Repository
         public void Edit(Employee entry){
             var serializer = new XmlSerializer(typeof(List<Employee>));
             using (var fileStream = new FileStream(_xmlFilePath, FileMode.Open)){
-                var entries = GetAll();
+                var entries = Get();
                 if(entries != null){
                     var index = entries.IndexOf(entry);
                     if (index >= 0){
@@ -48,7 +59,7 @@ namespace WPAZV.Repository
         public void Delete(int id){
             var serializer = new XmlSerializer(typeof(List<Employee>));
             using (var fileStream = new FileStream(_xmlFilePath, FileMode.Open)){
-                var entries = GetAll();
+                var entries = Get();
                 if(entries != null){
                     var index = entries.FindIndex(e => e.ID == id);
                     if (index >= 0){
