@@ -1,3 +1,4 @@
+#pragma warning disable CS8602
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using WPAZV.Model;
@@ -17,9 +18,11 @@ namespace WPAZV.Repository
             var serializer = new XmlSerializer(typeof(List<Employee>));
             List<Employee> _tmp = new();
             using (var fileStream = new FileStream(_xmlFilePath, FileMode.Open)){
-                _tmp = serializer.Deserialize(fileStream) as List<Employee>;
+                foreach(Employee e in serializer.Deserialize(fileStream) as List<Employee>){
+                    _tmp.Add(e);
+                }
             }
-            if(id != "0"){
+            if(id != "0" && _tmp != null && _tmp.Count > 0){
                 foreach(Employee e in _tmp){
                     if(e.ID + "" == id){
                         var result = new List<Employee>();
@@ -71,3 +74,4 @@ namespace WPAZV.Repository
         }
     }
 }
+#pragma warning restore CS8602
