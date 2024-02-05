@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WPAZV")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c912bbb09504e98850c947f7ae90b152a81d2195")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0801e6eaa60b19d5de6d26f8a8de1b6d73bbf19f")]
 [assembly: System.Reflection.AssemblyProductAttribute("WPAZV")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WPAZV")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

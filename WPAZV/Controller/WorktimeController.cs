@@ -5,7 +5,7 @@ using WPAZV.ViewModel;
 
 namespace WPAZV.Controller;
 
-public class WorktimeController : IController
+public class WorktimeController : BController
 {
     private readonly WorktimeRepository _repository;
 
@@ -14,11 +14,11 @@ public class WorktimeController : IController
         _repository = new WorktimeRepository(xmlFilePath);
     }
 
-    public void _Add()
+    public override void Add()
     {
         WorktimeViewModel entry = new WorktimeViewModel
         {
-            ID = (from r in _repository.GetAll() orderby r.ID select r.ID).Max() + 1
+            ID = (from r in _repository.Get("") orderby r.ID select r.ID).Max() + 1
         };
         entry.UserID = int.Parse(Console.ReadLine());
         Console.Write("Einsatzort: ");
@@ -38,9 +38,9 @@ public class WorktimeController : IController
         }
     }
 
-    public  void _Edit(int id)
+    public override void Edit(int id)
     {
-        var entry = _repository.GetAll().Find(e => e.ID == id);
+        var entry = _repository.Get("").Find(e => e.ID == id);
         if (entry != null)
         {
             Console.Write("Einsatzort: ");
@@ -64,17 +64,17 @@ public class WorktimeController : IController
         }
     }
 
-    public  void _Delete(int id)
+    public override void Delete(int id)
     {
-        var entry = _repository.GetAll().Find(e => e.ID == id);
+        var entry = _repository.Get("").Find(e => e.ID == id);
         if (entry != null)
         {
             try{
             _repository.Delete(id);
             Console.WriteLine("Worktime entry deleted successfully.");
             }catch(Exception ex){
-                Log.AddLog(ex.Message, ErrorLevel.Error);
-                Console.WriteLine($"Error in Worktime.Delete : {ex.Message}");
+                base.WriteLog(ex.Message, ErrorLevel.Error);
+
             }
         }
         else
@@ -83,9 +83,9 @@ public class WorktimeController : IController
         }
     }
 
-    public  void _View()
+    public override void View()
     {
-        var entries = _repository.GetAll();
+        var entries = _repository.Get("");
         foreach (var entry in entries)
         {
             Console.WriteLine($"ID: {entry.ID}");
@@ -98,13 +98,13 @@ public class WorktimeController : IController
         }
     }
 
-    public void Action(string action = "view", string data = "0"){
+    public override void Action(string action = "view", string data = "0"){
         switch(action.ToLower()){
-            case "add" : _Add();break;
-            case "del" : _Delete(Convert.ToInt32(data));break;
-            case "edit" : _Edit(Convert.ToInt32(data));break;
-            case "view" : _View();break; 
-            default: _View();break;
+            case "add" : Add();break;
+            case "del" : Delete(Convert.ToInt32(data));break;
+            case "edit" : Edit(Convert.ToInt32(data));break;
+            case "view" : View();break; 
+            default: View();break;
         }
 
     }

@@ -38,7 +38,7 @@ while (true)
             controller.Delete(WTCDid);
             break;
         case "4":
-            controller.ViewWorktime();
+            controller.View();
             break;
         case "5" :
             break;

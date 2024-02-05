@@ -1,18 +1,22 @@
 using System.Xml.Serialization;
+using WPAZV.Interfaces;
 using WPAZV.ViewModel;
 using WPBasic.Logging;
 
 namespace WPAZV.Repository
 {
-    public class WorktimeRepository{
+    public class WorktimeRepository : IRepository<WorktimeViewModel>{
         private readonly string _xmlFilePath;
 
         public WorktimeRepository(string xmlFilePath){
             _xmlFilePath = xmlFilePath;
         }
 
-        public List<WorktimeViewModel> GetAll(){
+        public List<WorktimeViewModel> Get(string id){
             var serializer = new XmlSerializer(typeof(List<WorktimeViewModel>));
+            if(id != ""){
+                throw new Exception("Nicht Implementier !!");
+            }
             try{
                 using (var fileStream = new FileStream(_xmlFilePath, FileMode.Open)){
                     #pragma warning disable CS8603
@@ -28,7 +32,7 @@ namespace WPAZV.Repository
         public void Add(WorktimeViewModel entry){
             var serializer = new XmlSerializer(typeof(List<WorktimeViewModel>));
             using (var fileStream = new FileStream(_xmlFilePath, FileMode.Create)){
-                var entries = GetAll();
+                var entries = Get("");
                 if(entries != null){
                     entries.Add(entry);
                     serializer.Serialize(fileStream, entries);
@@ -39,7 +43,7 @@ namespace WPAZV.Repository
         public void Edit(WorktimeViewModel entry){
             var serializer = new XmlSerializer(typeof(List<WorktimeViewModel>));
             using (var fileStream = new FileStream(_xmlFilePath, FileMode.Open)){
-                var entries = GetAll();
+                var entries = Get("");
                 if(entries != null){
                     var index = entries.IndexOf(entry);
                     if (index >= 0){
@@ -53,7 +57,7 @@ namespace WPAZV.Repository
         public void Delete(int id){
             var serializer = new XmlSerializer(typeof(List<WorktimeViewModel>));
             using (var fileStream = new FileStream(_xmlFilePath, FileMode.Open)){
-                var entries = GetAll();
+                var entries = Get("");
                 if(entries != null){
                     var index = entries.FindIndex(e => e.ID == id);
                     if (index >= 0){
