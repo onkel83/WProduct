@@ -5,67 +5,13 @@ using WPBasic.Logging;
 
 namespace WPAZV.Repository
 {
-    public class WorktimeRepository : IRepository<WorktimeViewModel>{
-        private readonly string _xmlFilePath;
+    public class WorktimeRepository : BRepository<WorktimeViewModel>
+    {
 
-        public WorktimeRepository(string xmlFilePath){
-            _xmlFilePath = xmlFilePath;
-        }
-
-        public List<WorktimeViewModel> Get(string id){
-            var serializer = new XmlSerializer(typeof(List<WorktimeViewModel>));
-            if(id != ""){
-                throw new Exception("Nicht Implementier !!");
-            }
-            try{
-                using (var fileStream = new FileStream(_xmlFilePath, FileMode.Open)){
-                    #pragma warning disable CS8603
-                    return serializer.Deserialize(fileStream) as List<WorktimeViewModel>;
-                    #pragma warning restore CS8603
-                }
-            }catch(Exception ex){
-                new LogEntry(DateTime.Now, ex.Message, ErrorLevel.Error);
-                return new List<WorktimeViewModel>();
-            }
-        }
-
-        public void Add(WorktimeViewModel entry){
-            var serializer = new XmlSerializer(typeof(List<WorktimeViewModel>));
-            using (var fileStream = new FileStream(_xmlFilePath, FileMode.Create)){
-                var entries = Get("");
-                if(entries != null){
-                    entries.Add(entry);
-                    serializer.Serialize(fileStream, entries);
-                }
-            }
-        }
-
-        public void Edit(WorktimeViewModel entry){
-            var serializer = new XmlSerializer(typeof(List<WorktimeViewModel>));
-            using (var fileStream = new FileStream(_xmlFilePath, FileMode.Open)){
-                var entries = Get("");
-                if(entries != null){
-                    var index = entries.IndexOf(entry);
-                    if (index >= 0){
-                        entries[index] = entry;
-                        serializer.Serialize(fileStream, entries);
-                    }
-                }
-            }
-        }
-
-        public void Delete(int id){
-            var serializer = new XmlSerializer(typeof(List<WorktimeViewModel>));
-            using (var fileStream = new FileStream(_xmlFilePath, FileMode.Open)){
-                var entries = Get("");
-                if(entries != null){
-                    var index = entries.FindIndex(e => e.ID == id);
-                    if (index >= 0){
-                        entries.RemoveAt(index);
-                        serializer.Serialize(fileStream, entries);
-                    }
-                }
-            }
+        public WorktimeRepository(string xmlFilePath)
+        {
+            XmlFilePath = xmlFilePath;
         }
     }
+
 }

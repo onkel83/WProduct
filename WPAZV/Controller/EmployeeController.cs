@@ -5,7 +5,7 @@ using WPBasic.Logging;
 
 namespace WPAZV.Controller 
 {
-    public class EmployeeController : IController
+    public class EmployeeController
     {
         private readonly EmployeeRepository _repository;
 
@@ -28,7 +28,7 @@ namespace WPAZV.Controller
             Console.Write("Geschlecht (M/W/D): ");
             entry.Gender = Console.ReadKey().KeyChar;
             try{
-                entry.ID = Convert.ToInt32(_repository.GetAll().OrderBy(u => u.ID).LastOrDefault().ID) + 1;
+                entry.ID = Convert.ToInt32(_repository.Get().OrderBy(u => u.ID).LastOrDefault().ID) + 1;
                 _repository.Add(entry);
                 Console.WriteLine("Worktime entry added successfully.");
             }catch(Exception ex){
@@ -39,7 +39,7 @@ namespace WPAZV.Controller
 
         public void _Edit(int id)
         {
-            var entry = _repository.GetAll().Find(e => e.ID == id);
+            var entry = _repository.Get().Find(e => e.ID == id);
             if (entry != null)
             {
                 
@@ -69,7 +69,7 @@ namespace WPAZV.Controller
 
         public void _Delete(int id)
         {
-            var entry = _repository.GetAll().Find(e => e.ID == id);
+            var entry = _repository.Get().Find(e => e.ID == id);
             if (entry != null)
             {
                 try{
@@ -88,7 +88,7 @@ namespace WPAZV.Controller
 
         public void _View()
         {
-            var entries = _repository.GetAll();
+            var entries = _repository.Get();
             foreach (var entry in entries)
             {
                 Console.WriteLine($"ID: {entry.ID}");

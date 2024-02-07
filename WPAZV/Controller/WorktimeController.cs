@@ -1,4 +1,3 @@
-#pragma warning disable CS8601, CS8602, CS8604
 using WPBasic.Logging;
 using WPAZV.Repository;
 using WPAZV.ViewModel;
@@ -16,11 +15,12 @@ public class WorktimeController : BController
 
     public override void Add()
     {
-        WorktimeViewModel entry = new WorktimeViewModel
+        
+        WorktimeViewModel entry = new()
         {
-            ID = (from r in _repository.Get("") orderby r.ID select r.ID).Max() + 1
+            ID = (from r in _repository.Get() orderby r.ID select r.ID).Max() + 1,
+            UserID = int.Parse(Console.ReadLine())
         };
-        entry.UserID = int.Parse(Console.ReadLine());
         Console.Write("Einsatzort: ");
         entry.Einsatzort = Console.ReadLine();
         Console.Write("Startzeit: ");
@@ -40,7 +40,7 @@ public class WorktimeController : BController
 
     public override void Edit(int id)
     {
-        var entry = _repository.Get("").Find(e => e.ID == id);
+        var entry = _repository.Get().Find(e => e.ID == id);
         if (entry != null)
         {
             Console.Write("Einsatzort: ");
@@ -66,11 +66,11 @@ public class WorktimeController : BController
 
     public override void Delete(int id)
     {
-        var entry = _repository.Get("").Find(e => e.ID == id);
+        var entry = _repository.Get().Find(e => e.ID == id);
         if (entry != null)
         {
             try{
-            _repository.Delete(id);
+            _repository.Delete(id.ToString());
             Console.WriteLine("Worktime entry deleted successfully.");
             }catch(Exception ex){
                 base.WriteLog(ex.Message, ErrorLevel.Error);
@@ -85,7 +85,7 @@ public class WorktimeController : BController
 
     public override void View()
     {
-        var entries = _repository.Get("");
+        var entries = _repository.Get();
         foreach (var entry in entries)
         {
             Console.WriteLine($"ID: {entry.ID}");
@@ -109,4 +109,3 @@ public class WorktimeController : BController
 
     }
 }
-#pragma warning restore CS8601, CS8602, CS8604

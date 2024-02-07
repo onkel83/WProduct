@@ -4,7 +4,7 @@ using WPBasic;
 namespace WPAZV.Model
 {
     [Serializable]
-    public class Employee :BasisViewModel, IEmployee
+    public class Employee :BasisViewModel, IModel
     {
         public int ID { get; set; }
         public string LastName { get; set; }
