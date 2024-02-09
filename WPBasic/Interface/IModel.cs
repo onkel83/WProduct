@@ -8,6 +8,6 @@ namespace WPBasic.Interface
     public interface IModel
     {
         int ID { get; set; }
-        string ToString();
+        string? ToString();
     }
 }

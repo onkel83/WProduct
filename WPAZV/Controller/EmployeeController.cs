@@ -1,12 +1,14 @@
 #pragma warning disable CS8601, CS8602, CS8604
 using WPAZV.Repository;
 using WPAZV.ViewModel;
+using WPBasic.Basissystem;
+using WPBasic.Interface;
 using WPBasic.Logging;
 using WPBasic.Logging.Model;
 
 namespace WPAZV.Controller 
 {
-    public class EmployeeController
+    public class EmployeeController : BasisController
     {
         private readonly EmployeeRepository _repository;
 
@@ -15,7 +17,7 @@ namespace WPAZV.Controller
             _repository = new EmployeeRepository(xmlFilePath);
         }
 
-        public void _Add()
+        public override void Add()
         {
             var entry = new EmployeeViewModel();
             Console.Write("Nachname: ");
@@ -38,7 +40,7 @@ namespace WPAZV.Controller
             }
         }
 
-        public void _Edit(int id)
+        public override void Edit(int id)
         {
             var entry = _repository.Get().Find(e => e.ID == id);
             if (entry != null)
@@ -68,7 +70,7 @@ namespace WPAZV.Controller
             }
         }
 
-        public void _Delete(int id)
+        public override void Delete(int id)
         {
             var entry = _repository.Get().Find(e => e.ID == id);
             if (entry != null)
@@ -87,7 +89,7 @@ namespace WPAZV.Controller
             }
         }
 
-        public void _View()
+        public override void View()
         {
             var entries = _repository.Get();
             foreach (var entry in entries)
@@ -101,9 +103,9 @@ namespace WPAZV.Controller
             }
         }
 
-        public void Action(string view = "view", string data = "0"){
+        public override void Action(string view = "view", string data = "0"){
             switch(view.ToLower()){
-                default : _View();break;
+                default : View();break;
             }
         }
     }

@@ -1,10 +1,12 @@
 using WPBasic.Logging;
 using WPAZV.Repository;
 using WPAZV.ViewModel;
+using WPBasic.Logging.Model;
+using WPBasic.Basissystem;
 
 namespace WPAZV.Controller;
 
-public class WorktimeController : BController
+public class WorktimeController : BasisController
 {
     private readonly WorktimeRepository _repository;
 

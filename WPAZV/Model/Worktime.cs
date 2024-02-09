@@ -1,5 +1,6 @@
 using WPBasic;
 using WPAZV.Interfaces;
+using WPBasic.Interface;
 
 namespace WPAZV.Model{
     [Serializable]
