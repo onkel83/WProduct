@@ -4,6 +4,7 @@ using WPBasic.Logging.Model;
 
 namespace WPBasic.Logging.Interfaces
 {
+    
     public interface ILogEntry : IModel
     {
         DateTime Date {get;set;}

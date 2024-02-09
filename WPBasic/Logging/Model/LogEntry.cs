@@ -6,6 +6,7 @@ namespace WPBasic.Logging.Model{
         Error,
         Warnung
     }
+    [Serializable]
     public class LogEntry : ILogEntry{
         #region Public Members
         public int ID {get;set;}
@@ -18,6 +19,9 @@ namespace WPBasic.Logging.Model{
             Date = date;
             Message = message;
             Level = level;
+        }
+        public LogEntry(){
+            
         }
     }
 }

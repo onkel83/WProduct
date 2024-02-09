@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfLogEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <LogEntry>
+        <ID>1</ID>
+        <Date>2024-02-09T12:27:35.9496357Z</Date>
+        <Message>Could not find file '/home/onkel/source/WProduct/TestAppConsole/Data/Arbeitszeit.xml'.</Message>
+        <Level>Info</Level>
+    </LogEntry>
+</ArrayOfLogEntry>

@@ -22,7 +22,7 @@ namespace WPBasic.Logging
 {
     public static class Log
     {
-        private static List<ILogEntry> _logEntries = new List<ILogEntry>();
+        private static List<LogEntry> _logEntries = new List<LogEntry>();
 
         private static string _logFilePath = Settings.GetSetting("Log")+".xml";
 
@@ -35,7 +35,7 @@ namespace WPBasic.Logging
             SaveLogToFile();
         }
 
-        public static List<ILogEntry> GetLogEntries()
+        public static List<LogEntry> GetLogEntries()
         {
             // Load the log entries from the file
             LoadLogFromFile();
@@ -57,13 +57,17 @@ namespace WPBasic.Logging
 
         private static void LoadLogFromFile()
         {
+            if(File.Exists(_logFilePath)){
             // Deserialize the log entries from XML
             XmlTextReader reader = new XmlTextReader(_logFilePath);
-            XmlSerializer serializer = new XmlSerializer(typeof(List<ILogEntry>));
+            XmlSerializer serializer = new XmlSerializer(typeof(List<LogEntry>));
             #pragma warning disable CS8600, CS8601
-            _logEntries = (List<ILogEntry>)serializer.Deserialize(reader);
+            _logEntries = (List<LogEntry>)serializer.Deserialize(reader);
             #pragma warning restore CS8600, CS8601
             reader.Close();
+            }else{
+                _logEntries = new List<LogEntry>();
+            }
         }
     }
 }

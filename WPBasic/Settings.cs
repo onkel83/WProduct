@@ -1,6 +1,7 @@
 #pragma warning disable CS8618, CS8603, CS8602
 using System.Xml.Linq;
 using WPBasic.Logging;
+using WPBasic.Logging.Model;
 
 namespace WPBasic
 {

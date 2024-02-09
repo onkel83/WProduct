@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\WPAZV\WPAZV.csproj" />
     <ProjectReference Include="..\WPBasic\WPBasic.csproj" />
   </ItemGroup>
 
