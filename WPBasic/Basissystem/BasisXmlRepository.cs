@@ -1,21 +1,20 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 using WPBasic.Interface;
 using WPBasic.Logging;
 using WPBasic.Logging.Model;
 
-namespace WPBasic.Basissystem{
-    public abstract class BasisRepository<T> : IRepository<T>{
-    public string XmlFilePath;
+namespace WPBasic.Basissystem
+{
+    public abstract class BasisXmlRepository<T> : IRepository<T>{
+    private string _XmlFilePath = "";
+    
+    public string XmlFilePath {get => _XmlFilePath; set => _XmlFilePath = value;}
 
     public List<T>? Get(){
         var serializer = new XmlSerializer(typeof(List<T>));
         try{
             using var fileStream = new FileStream(XmlFilePath, FileMode.Open);
-            List<T> _tmp = serializer.Deserialize(fileStream) as List<T>;
+            List<T> _tmp = (serializer.Deserialize(fileStream) as List<T>)!= null ? serializer.Deserialize(fileStream) as List<T>: new List<T>();
             return _tmp;
         }catch (Exception ex){
                 WriteError(ex.Message);
