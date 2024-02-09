@@ -15,25 +15,27 @@
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
+using WPBasic.Logging.Interfaces;
+using WPBasic.Logging.Model;
 
 namespace WPBasic.Logging
 {
     public static class Log
     {
-        private static List<LogEntry> _logEntries = new List<LogEntry>();
+        private static List<ILogEntry> _logEntries = new List<ILogEntry>();
 
         private static string _logFilePath = Settings.GetSetting("Log")+".xml";
 
         public static void AddLog(string message, ErrorLevel level)
         {
-            LogEntry logEntry = new LogEntry(DateTime.UtcNow, message, level);
+            LogEntry logEntry = new LogEntry(GetLogEntries().Count + 1, DateTime.UtcNow, message, level);
             _logEntries.Add(logEntry);
 
             // Save the log entry to the file
             SaveLogToFile();
         }
 
-        public static List<LogEntry> GetLogEntries()
+        public static List<ILogEntry> GetLogEntries()
         {
             // Load the log entries from the file
             LoadLogFromFile();
@@ -57,9 +59,9 @@ namespace WPBasic.Logging
         {
             // Deserialize the log entries from XML
             XmlTextReader reader = new XmlTextReader(_logFilePath);
-            XmlSerializer serializer = new XmlSerializer(typeof(List<LogEntry>));
+            XmlSerializer serializer = new XmlSerializer(typeof(List<ILogEntry>));
             #pragma warning disable CS8600, CS8601
-            _logEntries = (List<LogEntry>)serializer.Deserialize(reader);
+            _logEntries = (List<ILogEntry>)serializer.Deserialize(reader);
             #pragma warning restore CS8600, CS8601
             reader.Close();
         }

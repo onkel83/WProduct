@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TgyWeH169qUAKzG4I8Sho3UUj4Ftadb3x61GunQVfAAEgR+mPou2la6uTR2aNBsm1IXOjNS5kqJBBksiPxPsDg==",
+  "dgSpecHash": "WcwJU1/+RzyE8TQ2zI0fuP5/ICN3DTYbQn8SXpXzWGu7k7h4nMW7rsbvGTs8sgLFZpu2MSwwp9UWzw6CD9rm/w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\koehn\\source\\repos\\WProduct\\WPAZV\\WPAZV.csproj",
+  "projectFilePath": "/home/onkel/source/WProduct/WPAZV/WPAZV.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

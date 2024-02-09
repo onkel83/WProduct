@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ENHpQf/5NtjbS9fOxtZwFlV90ZpLy3DMpkG378D1xSO18UkBNHE3KmjsMmjdHUMqYZRMIlRqN8syGUwCNYqaPg==",
+  "dgSpecHash": "xnFuip37FYCD1NnH36TmQuGEgvfyXlQlYWoUlbLMjyFV8TVjz0FNqATVKmdfdaXzyv0acD0rfI8lu8aK7RElXg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\koehn\\source\\repos\\WProduct\\TestAppConsole\\TestAppConsole.csproj",
+  "projectFilePath": "/home/onkel/source/WProduct/TestAppConsole/TestAppConsole.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

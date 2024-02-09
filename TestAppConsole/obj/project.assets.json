@@ -46,43 +46,35 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\koehn\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/home/onkel/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\koehn\\source\\repos\\WProduct\\TestAppConsole\\TestAppConsole.csproj",
+      "projectUniqueName": "/home/onkel/source/WProduct/TestAppConsole/TestAppConsole.csproj",
       "projectName": "TestAppConsole",
-      "projectPath": "C:\\Users\\koehn\\source\\repos\\WProduct\\TestAppConsole\\TestAppConsole.csproj",
-      "packagesPath": "C:\\Users\\koehn\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\koehn\\source\\repos\\WProduct\\TestAppConsole\\obj\\",
+      "projectPath": "/home/onkel/source/WProduct/TestAppConsole/TestAppConsole.csproj",
+      "packagesPath": "/home/onkel/.nuget/packages/",
+      "outputPath": "/home/onkel/source/WProduct/TestAppConsole/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\koehn\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/onkel/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\koehn\\source\\repos\\WProduct\\WPAZV\\WPAZV.csproj": {
-              "projectPath": "C:\\Users\\koehn\\source\\repos\\WProduct\\WPAZV\\WPAZV.csproj"
+            "/home/onkel/source/WProduct/WPAZV/WPAZV.csproj": {
+              "projectPath": "/home/onkel/source/WProduct/WPAZV/WPAZV.csproj"
             },
-            "C:\\Users\\koehn\\source\\repos\\WProduct\\WPBasic\\WPBasic.csproj": {
-              "projectPath": "C:\\Users\\koehn\\source\\repos\\WProduct\\WPBasic\\WPBasic.csproj"
+            "/home/onkel/source/WProduct/WPBasic/WPBasic.csproj": {
+              "projectPath": "/home/onkel/source/WProduct/WPBasic/WPBasic.csproj"
             }
           }
         }
@@ -112,7 +104,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.101/RuntimeIdentifierGraph.json"
       }
     }
   }

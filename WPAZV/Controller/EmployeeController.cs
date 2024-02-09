@@ -2,6 +2,7 @@
 using WPAZV.Repository;
 using WPAZV.ViewModel;
 using WPBasic.Logging;
+using WPBasic.Logging.Model;
 
 namespace WPAZV.Controller 
 {
@@ -73,7 +74,7 @@ namespace WPAZV.Controller
             if (entry != null)
             {
                 try{
-                    _repository.Delete(id);
+                    _repository.Delete(id.ToString());
                     Console.WriteLine("Employee deleted successfully.");
                 }catch(Exception ex){
                     Log.AddLog(ex.Message, ErrorLevel.Error);

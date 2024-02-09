@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oj9jA8MztrHa8m1qJKjhxe1Wtx/zOjYRScG+TnGq0LqZKBs3BCvvHAoKm7hAMivMoezm5/cYV7Be8Lm+wd0Qnw==",
+  "dgSpecHash": "vDJ/I0RtxR6QrrDgafFD1fTnsrBSD3wGNcaK7c7aTvIazbAI9idxtQ+iGx6cc1y8xIA5Qo8LwnChMG9jGeBWjw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\koehn\\source\\repos\\WProduct\\WPBasic\\WPBasic.csproj",
+  "projectFilePath": "/home/onkel/source/WProduct/WPBasic/WPBasic.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

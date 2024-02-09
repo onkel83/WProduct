@@ -1,8 +1,9 @@
-﻿namespace WPAZV;
+﻿using WPBasic.Interface;
 
-public interface IWorktime
+namespace WPAZV.Interfaces;
+
+public interface IWorktime : IModel
 {
-            public int ID { get; set; }
         public int UserID { get; set; }
         public string Einsatzort { get; set; }
         public DateTime Startzeit { get; set; }

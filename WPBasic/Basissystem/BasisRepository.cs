@@ -1,20 +1,16 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Xml.Serialization;
-using WPAZV.ViewModel;
-using WPBasic;
+using WPBasic.Interface;
 using WPBasic.Logging;
+using WPBasic.Logging.Model;
 
-namespace WPAZV.Interfaces
+namespace WPBasic.Basissystem
 {
-    public interface IRepository<T>
-    {
-        void Add(T value);
-        void Edit(T value);
-        void Delete(string value);
-        List<T>? Get();
-    }
-
-    public abstract class BRepository<T> : IRepository<T> {
-        public string XmlFilePath;
+    public abstract class BasisRepository<T> : IRepository<T>{
+    public string XmlFilePath;
 
         public List<T>? Get()
         {
