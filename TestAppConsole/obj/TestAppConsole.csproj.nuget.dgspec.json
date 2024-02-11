@@ -26,66 +26,6 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/home/onkel/source/WProduct/WPAZV/WPAZV.csproj": {
-                "projectPath": "/home/onkel/source/WProduct/WPAZV/WPAZV.csproj"
-              },
-              "/home/onkel/source/WProduct/WPBasic/WPBasic.csproj": {
-                "projectPath": "/home/onkel/source/WProduct/WPBasic/WPBasic.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.101/RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "/home/onkel/source/WProduct/WPAZV/WPAZV.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/home/onkel/source/WProduct/WPAZV/WPAZV.csproj",
-        "projectName": "WPAZV",
-        "projectPath": "/home/onkel/source/WProduct/WPAZV/WPAZV.csproj",
-        "packagesPath": "/home/onkel/.nuget/packages/",
-        "outputPath": "/home/onkel/source/WProduct/WPAZV/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/home/onkel/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net7.0"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {
               "/home/onkel/source/WProduct/WPBasic/WPBasic.csproj": {
                 "projectPath": "/home/onkel/source/WProduct/WPBasic/WPBasic.csproj"
               }

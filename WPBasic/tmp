@@ -1,34 +1,82 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
+using Newtonsoft.Json;
 
-var mitarbeiterRepository = new MitarbeiterRepository();
+public class FileIOHelper
+{
+    public static void SaveToJson<T>(List<T> list, string filePath)
+    {
+        string json = JsonConvert.SerializeObject(list);
+        using (StreamWriter writer = new StreamWriter(filePath))
+        {
+            writer.Write(json);
+        }
+    }
 
-            // Add
-            Employee mitarbeiter1 = new Employee { ID = 1, LastName = "Mustermann", FirstName = "Max", Birthday = new DateTime(1990, 12, 24), PhoneNumber = "0123456789", Gender = 'M' };
-            mitarbeiterRepository.Add(mitarbeiter1);
+    public static List<T> LoadFromJson<T>(string filePath)
+    {
+        using (StreamReader reader = new StreamReader(filePath))
+        {
+            string json = reader.ReadToEnd();
+            return JsonConvert.DeserializeObject<List<T>>(json);
+        }
+    }
 
-            Employee mitarbeiter2 = new Employee { ID = 2, LastName = "Mustermann", FirstName = "Moritz", Birthday = new DateTime(1991, 3, 14), PhoneNumber = "0123456789", Gender = 'M' };
-            mitarbeiterRepository.Add(mitarbeiter2);
+    public static void SaveToBinary<T>(List<T> list, string filePath)
+    {
+        using (FileStream fileStream = new FileStream(filePath, FileMode.Create))
+        {
+            var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+            binaryFormatter.Serialize(fileStream, list);
+        }
+    }
 
-/*            // Edit
-            mitarbeiter1.LastName = "Musterfrau";
-            mitarbeiter1.FirstName = "Maria";
-            mitarbeiter1.Birthday = new DateTime(1992, 4, 12);
-            mitarbeiterRepository.Edit(mitarbeiter1);
-/*
-            // Delete
-            mitarbeiterRepository.Delete(2);
-*/
-            // GetAll
-            List<Employee> mitarbeiterList = mitarbeiterRepository.GetAll();
-            foreach (Employee _mitarbeiter in mitarbeiterList){
-                Console.WriteLine($"ID: {_mitarbeiter.ID}, Nachname: {_mitarbeiter.LastName}, Vorname: {_mitarbeiter.FirstName}, Geburstag: {_mitarbeiter.Birthday}, Handynummer: {_mitarbeiter.PhoneNumber}, Geschlecht: {_mitarbeiter.Gender}");
-            }
-/*
-            // GetByID
-            Employee? mitarbeiter = mitarbeiterRepository.GetByID(1);
-            if(mitarbeiter != null)
-                Console.WriteLine($"ID: {mitarbeiter.ID}, Nachname: {mitarbeiter.LastName}, Vorname: {mitarbeiter.FirstName}, Geburstag: {mitarbeiter.Birthday}, Handynummer: {mitarbeiter.PhoneNumber}, Geschlecht: {mitarbeiter.Gender}");
-*/
-            // SaveToXml
-            mitarbeiterRepository.SaveToXml("mitarbeiter.xml");
+    public static List<T> LoadFromBinary<T>(string filePath)
+    {
+        using (FileStream fileStream = new FileStream(filePath, FileMode.Open))
+        {
+            var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+            return (List<T>)binaryFormatter.Deserialize(fileStream);
+        }
+    }
+}
 
-            Console.ReadLine();
+// Beispielverwendung:
+public class MainViewModel
+{
+    public void SaveDataToXml<T>(List<T> data, string filePath)
+    {
+        FileIOHelper.SaveToXml(data, filePath);
+    }
+
+    public List<T> LoadDataFromXml<T>(string filePath)
+    {
+        return FileIOHelper.LoadFromXml<T>(filePath);
+    }
+}
+
+// Main Methode zum Testen
+class Program
+{
+    static void Main()
+    {
+        List<int> intList = new List<int> { 1, 2, 3, 4, 5 };
+        string xmlFilePath = "data.xml";
+        string jsonFilePath = "data.json";
+        string binaryFilePath = "data.dat";
+
+        // XML
+        FileIOHelper.SaveToXml(intList, xmlFilePath);
+        List<int> loadedIntListFromXml = FileIOHelper.LoadFromXml<int>(xmlFilePath);
+
+        // JSON
+        FileIOHelper.SaveToJson(intList, jsonFilePath);
+        List<int> loadedIntListFromJson = FileIOHelper.LoadFromJson<int>(jsonFilePath);
+
+        // Binary
+        FileIOHelper.SaveToBinary(intList, binaryFilePath);
+        List<int> loadedIntListFromBinary = FileIOHelper.LoadFromBinary<int>(binaryFilePath);
+    }
+}

@@ -6,4 +6,22 @@
         <Message>Could not find file '/home/onkel/source/WProduct/TestAppConsole/Data/Arbeitszeit.xml'.</Message>
         <Level>Info</Level>
     </LogEntry>
+    <LogEntry>
+        <ID>2</ID>
+        <Date>2024-02-11T10:11:16.5312626Z</Date>
+        <Message>Dies ist ein Test Eintrag !</Message>
+        <Level>Info</Level>
+    </LogEntry>
+    <LogEntry>
+        <ID>3</ID>
+        <Date>2024-02-11T10:17:48.3261885Z</Date>
+        <Message>Folgender Setting Eintrag ist geschrieben worden : DataPath :: /home/onkel/source/WProduct/TestAppConsole/bin/Debug/net7.0/Data/ !</Message>
+        <Level>Info</Level>
+    </LogEntry>
+    <LogEntry>
+        <ID>4</ID>
+        <Date>2024-02-11T10:17:48.3602163Z</Date>
+        <Message>Folgender Setting Eintrag ist geschrieben worden : BasePath :: /home/onkel/source/WProduct/TestAppConsole/bin/Debug/net7.0/ !</Message>
+        <Level>Info</Level>
+    </LogEntry>
 </ArrayOfLogEntry>

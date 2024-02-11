@@ -2,19 +2,6 @@
   "version": 3,
   "targets": {
     "net7.0": {
-      "WPAZV/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "dependencies": {
-          "WPBasic": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/WPAZV.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/WPAZV.dll": {}
-        }
-      },
       "WPBasic/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -28,11 +15,6 @@
     }
   },
   "libraries": {
-    "WPAZV/1.0.0": {
-      "type": "project",
-      "path": "../WPAZV/WPAZV.csproj",
-      "msbuildProject": "../WPAZV/WPAZV.csproj"
-    },
     "WPBasic/1.0.0": {
       "type": "project",
       "path": "../WPBasic/WPBasic.csproj",
@@ -41,7 +23,6 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "WPAZV >= 1.0.0",
       "WPBasic >= 1.0.0"
     ]
   },
@@ -70,9 +51,6 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/home/onkel/source/WProduct/WPAZV/WPAZV.csproj": {
-              "projectPath": "/home/onkel/source/WProduct/WPAZV/WPAZV.csproj"
-            },
             "/home/onkel/source/WProduct/WPBasic/WPBasic.csproj": {
               "projectPath": "/home/onkel/source/WProduct/WPBasic/WPBasic.csproj"
             }

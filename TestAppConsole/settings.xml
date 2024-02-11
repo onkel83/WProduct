@@ -3,4 +3,6 @@
   <Setting Name="WTC" Value="Data/Arbeitszeit" />
   <Setting Name="EC" Value="Data/Mitarbeiter" />
   <Setting Name="Log" Value="Data/log" />
+  <Setting Name="BasePath" Value="/home/onkel/source/WProduct/TestAppConsole/bin/Debug/net7.0/" />
+  <Setting Name="DataPath" Value="/home/onkel/source/WProduct/TestAppConsole/bin/Debug/net7.0/Data/" />
 </Settings>

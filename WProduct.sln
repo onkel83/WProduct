@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPBasic", "WPBasic\WPBasic.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAppConsole", "TestAppConsole\TestAppConsole.csproj", "{B56911F3-1808-44CB-8131-F464FB56C50C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPAZV", "WPAZV\WPAZV.csproj", "{95D48E11-F1AE-4573-A689-CBA7411894EB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
