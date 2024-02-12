@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "vDJ/I0RtxR6QrrDgafFD1fTnsrBSD3wGNcaK7c7aTvIazbAI9idxtQ+iGx6cc1y8xIA5Qo8LwnChMG9jGeBWjw==",
+  "dgSpecHash": "G08/ZtvmTQo4PVMx60Ioctps0bcUQG3QTnMikmJIzBC05xWoFDQM/5Gtk/NCnzxEfhTSGAbjazg3Tzo+GRNgnw==",
   "success": true,
-  "projectFilePath": "/home/onkel/source/WProduct/WPBasic/WPBasic.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\koehn\\source\\repos\\WProduct\\WPBasic\\WPBasic.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\koehn\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,33 +1,40 @@
 {
   "format": 1,
   "restore": {
-    "/home/onkel/source/WProduct/TestAppConsole/TestAppConsole.csproj": {}
+    "C:\\Users\\koehn\\source\\repos\\WProduct\\TestAppConsole\\TestAppConsole.csproj": {}
   },
   "projects": {
-    "/home/onkel/source/WProduct/TestAppConsole/TestAppConsole.csproj": {
+    "C:\\Users\\koehn\\source\\repos\\WProduct\\TestAppConsole\\TestAppConsole.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/onkel/source/WProduct/TestAppConsole/TestAppConsole.csproj",
+        "projectUniqueName": "C:\\Users\\koehn\\source\\repos\\WProduct\\TestAppConsole\\TestAppConsole.csproj",
         "projectName": "TestAppConsole",
-        "projectPath": "/home/onkel/source/WProduct/TestAppConsole/TestAppConsole.csproj",
-        "packagesPath": "/home/onkel/.nuget/packages/",
-        "outputPath": "/home/onkel/source/WProduct/TestAppConsole/obj/",
+        "projectPath": "C:\\Users\\koehn\\source\\repos\\WProduct\\TestAppConsole\\TestAppConsole.csproj",
+        "packagesPath": "C:\\Users\\koehn\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\koehn\\source\\repos\\WProduct\\TestAppConsole\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/onkel/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\koehn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/home/onkel/source/WProduct/WPBasic/WPBasic.csproj": {
-                "projectPath": "/home/onkel/source/WProduct/WPBasic/WPBasic.csproj"
+              "C:\\Users\\koehn\\source\\repos\\WProduct\\WPBasic\\WPBasic.csproj": {
+                "projectPath": "C:\\Users\\koehn\\source\\repos\\WProduct\\WPBasic\\WPBasic.csproj"
               }
             }
           }
@@ -57,26 +64,33 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/onkel/source/WProduct/WPBasic/WPBasic.csproj": {
+    "C:\\Users\\koehn\\source\\repos\\WProduct\\WPBasic\\WPBasic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/onkel/source/WProduct/WPBasic/WPBasic.csproj",
+        "projectUniqueName": "C:\\Users\\koehn\\source\\repos\\WProduct\\WPBasic\\WPBasic.csproj",
         "projectName": "WPBasic",
-        "projectPath": "/home/onkel/source/WProduct/WPBasic/WPBasic.csproj",
-        "packagesPath": "/home/onkel/.nuget/packages/",
-        "outputPath": "/home/onkel/source/WProduct/WPBasic/obj/",
+        "projectPath": "C:\\Users\\koehn\\source\\repos\\WProduct\\WPBasic\\WPBasic.csproj",
+        "packagesPath": "C:\\Users\\koehn\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\koehn\\source\\repos\\WProduct\\WPBasic\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/onkel/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\koehn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -94,6 +108,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -110,7 +130,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

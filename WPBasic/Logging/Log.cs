@@ -22,13 +22,13 @@ namespace WPBasic.Logging
 {
     public static class Log
     {
-        private static List<LogEntry> _logEntries = new List<LogEntry>();
+        private static List<LogEntry> _logEntries = new();
 
-        private static string _logFilePath = Settings.GetSetting("Log")+".xml";
+        private static readonly string _logFilePath = Settings.GetSetting("Log")+".xml";
 
         public static void AddLog(string message, ErrorLevel level)
         {
-            LogEntry logEntry = new LogEntry(GetLogEntries().Count + 1, DateTime.UtcNow, message, level);
+            LogEntry logEntry = new(GetLogEntries().Count + 1, DateTime.UtcNow, message, level);
             _logEntries.Add(logEntry);
 
             // Save the log entry to the file
@@ -45,13 +45,12 @@ namespace WPBasic.Logging
 
         private static void SaveLogToFile(){
             // Serialize the log entries to XML
-            using (XmlTextWriter writer = new XmlTextWriter(_logFilePath, Encoding.UTF8)){
-                writer.Formatting = Formatting.Indented;
-                writer.Indentation = 4;
+            using XmlTextWriter writer = new(_logFilePath, Encoding.UTF8);
+            writer.Formatting = Formatting.Indented;
+            writer.Indentation = 4;
 
-                XmlSerializer serializer = new XmlSerializer(typeof(List<LogEntry>));
-                serializer.Serialize(writer, _logEntries);
-            }
+            XmlSerializer serializer = new(typeof(List<LogEntry>));
+            serializer.Serialize(writer, _logEntries);
         }
 
 
@@ -59,8 +58,8 @@ namespace WPBasic.Logging
         {
             if(File.Exists(_logFilePath)){
             // Deserialize the log entries from XML
-            XmlTextReader reader = new XmlTextReader(_logFilePath);
-            XmlSerializer serializer = new XmlSerializer(typeof(List<LogEntry>));
+            XmlTextReader reader = new(_logFilePath);
+            XmlSerializer serializer = new(typeof(List<LogEntry>));
             #pragma warning disable CS8600, CS8601
             _logEntries = (List<LogEntry>)serializer.Deserialize(reader);
             #pragma warning restore CS8600, CS8601

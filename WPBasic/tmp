@@ -8,38 +8,22 @@ public class FileIOHelper
 {
     public static void SaveToJson<T>(List<T> list, string filePath)
     {
-        string json = JsonConvert.SerializeObject(list);
-        using (StreamWriter writer = new StreamWriter(filePath))
-        {
-            writer.Write(json);
-        }
+        
     }
 
     public static List<T> LoadFromJson<T>(string filePath)
     {
-        using (StreamReader reader = new StreamReader(filePath))
-        {
-            string json = reader.ReadToEnd();
-            return JsonConvert.DeserializeObject<List<T>>(json);
-        }
+        
     }
 
     public static void SaveToBinary<T>(List<T> list, string filePath)
     {
-        using (FileStream fileStream = new FileStream(filePath, FileMode.Create))
-        {
-            var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-            binaryFormatter.Serialize(fileStream, list);
-        }
+        
     }
 
     public static List<T> LoadFromBinary<T>(string filePath)
     {
-        using (FileStream fileStream = new FileStream(filePath, FileMode.Open))
-        {
-            var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-            return (List<T>)binaryFormatter.Deserialize(fileStream);
-        }
+        
     }
 }
 

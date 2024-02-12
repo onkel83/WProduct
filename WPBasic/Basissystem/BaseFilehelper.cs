@@ -24,6 +24,9 @@ namespace WPBasic.Basissystem
 
         public abstract void Load();
         public abstract void Save();
-        public abstract void WriteToLog(string msg, ErrorLevel lvl);
+        public void WriteToLog(string msg, ErrorLevel lvl = ErrorLevel.Error)
+        {
+            Logging.Log.AddLog(msg, lvl);
+        }
     }
 }
