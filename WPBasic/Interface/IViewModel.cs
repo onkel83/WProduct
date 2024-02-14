@@ -11,4 +11,9 @@ namespace WPBasic.Interface
         new event PropertyChangedEventHandler PropertyChanged;
         void NotifyPropertyChanged(string propertyName);
     }
+
+    public interface IViewModel<T> : IViewModel{
+        List<T> Values {get;set;}
+        T Value {get;set;}
+    }
 }

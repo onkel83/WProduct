@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPBasic", "WPBasic\WPBasic.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAppConsole", "TestAppConsole\TestAppConsole.csproj", "{B56911F3-1808-44CB-8131-F464FB56C50C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPWorker", "WPWorker\WPWorker.csproj", "{8F9C9185-B3A4-4222-AF84-DB7AE5A78410}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,5 +30,9 @@ Global
 		{95D48E11-F1AE-4573-A689-CBA7411894EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95D48E11-F1AE-4573-A689-CBA7411894EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95D48E11-F1AE-4573-A689-CBA7411894EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F9C9185-B3A4-4222-AF84-DB7AE5A78410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F9C9185-B3A4-4222-AF84-DB7AE5A78410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F9C9185-B3A4-4222-AF84-DB7AE5A78410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F9C9185-B3A4-4222-AF84-DB7AE5A78410}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
