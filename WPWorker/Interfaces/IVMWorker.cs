@@ -2,7 +2,7 @@ using WPBasic.Interface;
 
 namespace WPWorker.Interfaces
 {
-    public interface IVMWorker : IViewModel<IMWorker>
+    public interface IVMWorker : IViewModel<MWorker>
     {
         
     }
