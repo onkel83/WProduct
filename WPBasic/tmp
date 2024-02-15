@@ -1,33 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Xml.Serialization;
-using Newtonsoft.Json;
-
-public class FileIOHelper
-{
-    public static void SaveToJson<T>(List<T> list, string filePath)
-    {
-        
-    }
-
-    public static List<T> LoadFromJson<T>(string filePath)
-    {
-        
-    }
-
-    public static void SaveToBinary<T>(List<T> list, string filePath)
-    {
-        
-    }
-
-    public static List<T> LoadFromBinary<T>(string filePath)
-    {
-        
-    }
-}
-
-// Beispielverwendung:
 public class MainViewModel
 {
     public void SaveDataToXml<T>(List<T> data, string filePath)
@@ -63,4 +33,12 @@ class Program
         FileIOHelper.SaveToBinary(intList, binaryFilePath);
         List<int> loadedIntListFromBinary = FileIOHelper.LoadFromBinary<int>(binaryFilePath);
     }
+}
+
+
+
+
+public class NetworkManager<T>
+{
+    
 }
