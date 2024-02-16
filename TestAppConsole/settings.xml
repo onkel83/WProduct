@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Settings>
-  <Setting Name="WTC" Value="Data/Arbeitszeit" />
-  <Setting Name="EC" Value="Data/Mitarbeiter" />
+  <Setting Name="VMData" Value="VMData.json" />
   <Setting Name="Log" Value="Data/log" />
+  <Setting Name="Port" Value="8080" />
+  <Setting Name="ServerIP" Value="0.0.0.0" />
   <Setting Name="BasePath" Value="/home/onkel/source/WProduct/TestAppConsole/bin/Debug/net7.0/" />
-  <Setting Name="DataPath" Value="/home/onkel/source/WProduct/TestAppConsole/bin/Debug/net7.0/Data/" />
+  <Setting Name="DataPath" Value="/home/onkel/source/WProduct/TestAppConsole/Data/" />
+  <Setting Name="Key" Value="FBM8dN07lInlZZ15oYu/qwrhpVyJ/MizMWrtuvbf1UA=" />
 </Settings>

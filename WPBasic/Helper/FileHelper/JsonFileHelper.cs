@@ -4,7 +4,7 @@ using WPBasic.Logging.Model;
 
 namespace WPBasic.Helper.FileHelper
 {
-    public abstract class JsonFileHelper<T> : BaseFilehelper<T>
+    public class JsonFileHelper<T> : BaseFilehelper<T>
     {
         public override void Save(){
             try{
@@ -28,7 +28,7 @@ namespace WPBasic.Helper.FileHelper
                     WriteToLog($"File nicht gefunden : {FileHandler}", ErrorLevel.Info);
                 }
             }catch(Exception ex) { 
-            WriteToLog(ex.Message); 
+                WriteToLog(ex.Message); 
             }
         }
     }

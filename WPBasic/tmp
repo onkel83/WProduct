@@ -34,11 +34,3 @@ class Program
         List<int> loadedIntListFromBinary = FileIOHelper.LoadFromBinary<int>(binaryFilePath);
     }
 }
-
-
-
-
-public class NetworkManager<T>
-{
-    
-}

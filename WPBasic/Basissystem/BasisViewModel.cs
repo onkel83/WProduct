@@ -14,15 +14,6 @@ public abstract class BasisViewModel : IViewModel
         }
 }
 public abstract class BasisViewModel<T> : BasisViewModel, IViewModel<T>{
-    private T _Value = default;
-    private List<T> _Values = default;
-
-    public T Value{
-        get => _Value;
-        set => _Value = value;
-    }
-    public List<T> Values{
-        get => _Values;
-        set => _Values = value;
-    }
+    public T Value { get; set; } = default;
+    public List<T> Values { get; set; } = default;
 }

@@ -27,6 +27,19 @@
         "runtime": {
           "bin/placeholder/WPBasic.dll": {}
         }
+      },
+      "WTServer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "WPBasic": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/WTServer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WTServer.dll": {}
+        }
       }
     }
   },
@@ -65,11 +78,17 @@
       "type": "project",
       "path": "../WPBasic/WPBasic.csproj",
       "msbuildProject": "../WPBasic/WPBasic.csproj"
+    },
+    "WTServer/1.0.0": {
+      "type": "project",
+      "path": "../WTServer/WTServer.csproj",
+      "msbuildProject": "../WTServer/WTServer.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "WPBasic >= 1.0.0"
+      "WPBasic >= 1.0.0",
+      "WTServer >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -99,6 +118,9 @@
           "projectReferences": {
             "/home/onkel/source/WProduct/WPBasic/WPBasic.csproj": {
               "projectPath": "/home/onkel/source/WProduct/WPBasic/WPBasic.csproj"
+            },
+            "/home/onkel/source/WProduct/WTServer/WTServer.csproj": {
+              "projectPath": "/home/onkel/source/WProduct/WTServer/WTServer.csproj"
             }
           }
         }

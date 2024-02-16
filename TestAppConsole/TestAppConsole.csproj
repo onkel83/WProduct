@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WPBasic\WPBasic.csproj" />
+    <ProjectReference Include="..\WTServer\WTServer.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
