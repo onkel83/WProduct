@@ -59,7 +59,7 @@ namespace WTServer{
                         break;
                     case Command.Delete:
                         Console.WriteLine("Received Delete command");
-                        vm.Value = data;
+                        vm.Value.ID = data.ID;
                         foreach(MData m in vm.Values){
                             if(m.ID == vm.Value.ID){
                                 vm.Values.Remove(m);
