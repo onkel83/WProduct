@@ -137,7 +137,36 @@ namespace WTServer{
             mData.Value = erg;
             return mData;
         }
-
+        private void Edit (ref MData mData){
+            VMWorkTime vm = new();
+            vm.Load();
+            foreach(MWorkTime wt in vm.Values){
+                if(wt.ID == mData.ID){
+                    vm.Value = wt;
+                    string[] _tmp = mData.Value.Split(';');
+                    wt.ID = Convert.ToInt32(_tmp[0]);
+                    wt.UserID = _tmp[1];
+                    wt.Start = _tmp[2];
+                    wt.Stop = _tmp[3];
+                    wt.Pause = _tmp[4];
+                    vm.Values.Remove(vm.Value);
+                    vm.Values.Add(wt);
+                    continue;
+                }
+            }
+            vm.Save();
+        }
+        private void Delete(MData mData){
+            VMWorkTime vm = new();
+            vm.Load();
+            foreach(MWorkTime wt in vm.Values){
+                if(wt.ID == mData.ID){
+                    vm.Values.Remove(wt);
+                    break;
+                }
+            }
+            vm.Save();
+        }
         private MData GetOne(ref MData mData){
             MWorkTime result = new();
             string _erg = GetAll(ref mData).Value;
