@@ -54,6 +54,8 @@ namespace WTServer{
                         }
                         vm.Values.Add(vm.Value);
                         vm.Save();
+                        wt = new();
+                        Edit(ref data);
                         break;
                     case Command.Delete:
                         Console.WriteLine("Received Delete command");
@@ -65,12 +67,16 @@ namespace WTServer{
                             }
                         }
                         vm.Save();
+                        wt = new();
+                        Delete(data);
                         break;
                     case Command.Get:
                         Console.WriteLine("Received Get command");
                         foreach(MData m in vm.Values){
                             Console.WriteLine($"ID : {m.ID}, Typ : {m.Cmd}, Value : {m.Value}");
                         }
+                        Console.WriteLine($"Gespeicherte WorkTime Einträge : ");
+                        Show();
                         break;
                     case Command.Exit:
                         isRunning = false;
