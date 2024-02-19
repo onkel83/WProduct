@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Settings>
   <Setting Name="VMData" Value="VMData.json" />
+  <Setting Name="WTData" Value="WTData.xml" />
   <Setting Name="Log" Value="Data/log" />
   <Setting Name="Port" Value="8080" />
   <Setting Name="ServerIP" Value="0.0.0.0" />

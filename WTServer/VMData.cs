@@ -20,7 +20,7 @@ public class VMData : BasisViewModel<MData>
     }
     public void Show(){
         foreach(MData d in _Values.Storage){
-            Console.WriteLine($"Typ : {d.Cmd}, Message : {d.Value}");
+            Console.WriteLine($"ID: {d.ID}, Typ : {d.Cmd}, Message : {d.Value}");
         }
     }
 }

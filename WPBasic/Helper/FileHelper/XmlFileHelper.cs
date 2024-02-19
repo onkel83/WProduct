@@ -4,7 +4,7 @@ using WPBasic.Logging.Model;
 
 namespace WPBasic.Helper.FileHelper
 {
-    public abstract class XmlFileHelper<T> : BaseFilehelper<T>
+    public class XmlFileHelper<T> : BaseFilehelper<T>
     {
 
         public override void Save(){
