@@ -16,8 +16,34 @@ namespace WPBasic.Basissystem
         public abstract void Edit(int id);
         public abstract void View();
         public void WriteLog(string msg = "", ErrorLevel lvl = ErrorLevel.Error){
-            Log.AddLog(msg, lvl);
-            Console.WriteLine($"Error in Worktime.Delete : {msg}");
+            CheckDebug($"Error in Worktime.Delete : {msg}", lvl);
+        }
+        public void CheckDebug(string msg, ErrorLevel lvl = ErrorLevel.Info){
+            bool debug = (Settings.GetSetting("Debug") == "1")?true:false;
+            switch(lvl){
+                case ErrorLevel.Info:
+                    if(debug){
+                        Console.WriteLine(msg);
+                    }else{
+                        Log.AddLog(msg, lvl);
+                    }
+                    break;
+                case ErrorLevel.Warnung:
+                    if(debug){
+                        Console.WriteLine(msg);
+                    }
+                    Log.AddLog(msg, lvl);
+                    break;
+                case ErrorLevel.Error:
+                    if(debug){
+                        Console.WriteLine(msg);
+                    }
+                    Log.AddLog(msg, lvl);
+                break;
+                default :
+                    Console.WriteLine(msg);
+                break;
+            }
         }
     }
 }

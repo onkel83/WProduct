@@ -18,7 +18,8 @@ namespace WPBasic.Helper.Security
         private byte[] _key;
 
         public AES(T data){
-            //_key = GenerateAesKey();
+            _key = GenerateAesKey();
+            Settings.SetSetting("Key", ConvertKeyToString(_key));
             _key = Convert.FromBase64String(Settings.GetSetting("Key"));
             Log.AddLog(ConvertKeyToString(_key), ErrorLevel.Info);
             Data = data;

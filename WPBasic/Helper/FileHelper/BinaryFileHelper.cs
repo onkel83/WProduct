@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WPBasic.Basissystem;
+﻿using WPBasic.Basissystem;
 using WPBasic.Logging.Model;
 
 namespace WPBasic.Helper.FileHelper
 {
-    public abstract class BinaryFileHelper<T> : BaseFilehelper<T>
+    public class BinaryFileHelper<T> : BaseFilehelper<T>
     {
         public override void Save()
         {

@@ -7,7 +7,7 @@ namespace WPBasic
 {
     public static class Settings
     {
-        private const string FileName = "settings.xml";
+        private const string FileName = "ClientSettings.xml";
 
         private static XDocument _xmlDocument;
 

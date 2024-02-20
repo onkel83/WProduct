@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using System.Text;
 using WPBasic;
 using WTServer;
+using WPBasic.Helper;
 
 class UDPClient
 {
@@ -12,6 +13,18 @@ class UDPClient
 
     static void Main()
     {
+        if(!File.Exists("settings.xml")){
+            Console.WriteLine($"Bitte geben sie ihren UserNamen ein : ");
+            string user = Console.In.ReadLine();
+            Console.WriteLine($"Bitte geben sie ihr Kennwort ein : ");
+            string pass = Console.In.ReadLine();
+            WPBasic.Helper.Security.AES<string> aes = new WPBasic.Helper.Security.AES<string>(pass);
+            Settings.SetSetting("Port","8080");
+            Settings.SetSetting("ServerIP", "127.0.0.1");
+            Settings.SetSetting("UserID", "1");
+            Settings.SetSetting("PWD",aes.EncryptedMessage);
+            Settings.SetSetting("User",user);
+        }
         using (var client = new UdpClient())
         {
             string UserID = "0";
@@ -30,8 +43,9 @@ class UDPClient
                     MData sendData = new MData
                         {
                             ID = int.Parse(data[0]),
-                            Cmd = (Command)Enum.Parse(typeof(Command), data[1], true),
-                            Value = data[2]
+                            Typus = (Family)Enum.Parse(typeof(Family), data[1], true),
+                            Cmd = (Command)Enum.Parse(typeof(Command), data[2], true),
+                            Value = data[3]
                         };
                     switch(sendData.Cmd){
                         case Command.Login :
@@ -102,8 +116,6 @@ class UDPClient
                             break;
                     }
                     if(send){
-                        
-
                         var jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(sendData);
                         byte[] bytes = Encoding.UTF8.GetBytes(jsonData);
 
@@ -147,9 +159,12 @@ class UDPClient
         Console.Clear();
         Console.WriteLine($"Bitte gib den Usernamen ein : ");
         string user = Console.In.ReadLine().Trim();
-        Console.WriteLine($"Gi bitte deine Kennung ein : ");
+        Console.WriteLine($"Gib bitte deine Kennung ein : ");
         string pwd = Console.In.ReadLine().Trim();
-        if(user != Settings.GetSetting("User") && pwd != Settings.GetSetting("PWD")){
+        WPBasic.Helper.Security.AES<string> aES = new WPBasic.Helper.Security.AES<string>(Settings.GetSetting("PWD"));
+        string _tmp = aES.DecryptMessage();
+        if(user != Settings.GetSetting("User") && pwd == _tmp){
+            Settings.SetSetting("PWD", aES.EncryptedMessage);
             return true;
         }
         return false;
@@ -159,6 +174,7 @@ class UDPClient
         Console.WriteLine($"Sind sie Sicher ? J/N");
         string result = Console.In.ReadLine().ToUpper().Trim();
         return (result != "J")?false:true; 
+            
     }
     private static string Add(){
         Console.Clear();
