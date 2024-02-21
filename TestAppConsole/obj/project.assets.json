@@ -28,12 +28,26 @@
           "bin/placeholder/WPBasic.dll": {}
         }
       },
+      "WPServClien/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "WPBasic": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/WPServClien.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WPServClien.dll": {}
+        }
+      },
       "WTServer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "Newtonsoft.Json": "13.0.3",
-          "WPBasic": "1.0.0"
+          "WPBasic": "1.0.0",
+          "WPServClien": "1.0.0"
         },
         "compile": {
           "bin/placeholder/WTServer.dll": {}
@@ -79,6 +93,11 @@
       "type": "project",
       "path": "../WPBasic/WPBasic.csproj",
       "msbuildProject": "../WPBasic/WPBasic.csproj"
+    },
+    "WPServClien/1.0.0": {
+      "type": "project",
+      "path": "../WPServClien/WPServClien.csproj",
+      "msbuildProject": "../WPServClien/WPServClien.csproj"
     },
     "WTServer/1.0.0": {
       "type": "project",

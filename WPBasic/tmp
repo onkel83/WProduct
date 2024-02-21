@@ -34,3 +34,18 @@ class Program
         List<int> loadedIntListFromBinary = FileIOHelper.LoadFromBinary<int>(binaryFilePath);
     }
 }
+
+
+//Server/Client to Enter in Programm :
+    UdpClient client = new UdpClient();
+        IPEndPoint groupEP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 11000);
+
+        Console.WriteLine("Type a message and press enter to send");
+        Console.WriteLine("Type 'exit' to exit");
+
+        string message = Console.ReadLine();
+        while (message.ToLower() != "exit") {
+            
+            message = Console.ReadLine();
+        }
+        client.Close();

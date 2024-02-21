@@ -1,5 +1,7 @@
 using WPBasic.Basissystem;
 using WPBasic;
+using WPServClien.ViewModels;
+using WTServClien.Models;
 
 namespace WTServer
 {
@@ -7,6 +9,8 @@ namespace WTServer
     {
         private VMUser _VM;
         private string _data;
+        public string Data{get;set;}
+
         public UserController(){
             _VM = new();
             _data = string.Empty;
@@ -101,17 +105,20 @@ namespace WTServer
         public override void View()
         {
             _VM.Load();
+            Data = "";
             foreach(MUser u in _VM.Values){
                 if(_data.ToLower() == "all" || string.IsNullOrEmpty(_data))
-                    Console.WriteLine($"{u.ToString()}");
+                    Data += u.ToString()+"|";
                 else{
                     if(u.ID == Convert.ToInt32(_data)){
-                        Console.WriteLine($"{u.ToString()}");
+                        Data = u.ToString();
                         break;
                     }
                 }
             }
+            if(_data == "all"){
+                Data.Substring(0,Data.Length -1);
+            }
         }
-
     }
 }

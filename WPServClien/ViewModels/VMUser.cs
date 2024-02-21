@@ -1,16 +1,15 @@
 using WPBasic;
 using WPBasic.Helper.FileHelper;
+using WTServClien.Models;
 
-namespace WTServer
-{
-    public class VMUser : BasisViewModel<MUser>
-    {
+namespace WPServClien.ViewModels{
+    public class VMUser : BasisViewModel<MUser>{
         public BinaryFileHelper<MUser> _Values = new();
 
         public VMUser(){
             Value = new();
             Values = new();
-            _Values.FileHandler = Settings.GetSetting("UserData");
+            _Values.FileHandler = Settings.GetSetting("VMUser");
         }
         public void Load(){
             Values.Clear();
@@ -21,7 +20,6 @@ namespace WTServer
             _Values.Storage.Clear();
             _Values.Storage = Values;
             _Values.Save();
-        }
-        
+        }       
     }
 }

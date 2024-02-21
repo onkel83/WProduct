@@ -2,11 +2,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WPBasic\WPBasic.csproj" />
-    <ProjectReference Include="..\WPServClien\WPServClien.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <PropertyGroup>

@@ -1,5 +1,5 @@
 using WPBasic.Basissystem;
-namespace WTServer{
+namespace WTServClien.Models{
     [Serializable()]
     public class MUser : BasisModel{
         private string _UserName = string.Empty;

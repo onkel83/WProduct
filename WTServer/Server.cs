@@ -4,6 +4,8 @@ using System.Text;
 using WPBasic;
 using WPBasic.Logging;
 using WPBasic.Logging.Model;
+using WPServClien;
+using WPServClien.Models;
 
 namespace WTServer
 {
@@ -32,7 +34,7 @@ namespace WTServer
                             ChooseUser(ref data);
                             break;
                         case Family.Data :
-                            //Neue Sachen und Testfälle !
+                            ChooseData(ref data);//Neue Sachen und Testfälle !
                             break;
                         case Family.WorkTime :
                             ChooseWorkTime(ref data);
@@ -116,6 +118,13 @@ namespace WTServer
                     break;
                 default:
                     CheckDebug($"Received unknown Command : {mData.Cmd}");
+                    break;
+            }
+        }
+        private void ChooseData(ref MData mData){
+            switch(mData.Cmd){
+                case Command.Login :
+                    _UC.Action("view");
                     break;
             }
         }
